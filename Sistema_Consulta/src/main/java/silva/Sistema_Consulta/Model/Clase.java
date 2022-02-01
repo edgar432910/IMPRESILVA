@@ -7,24 +7,32 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Data
 @Entity
-@Table(name="Familia")
-public class Familia {
+@Table(name="Clase")
+public class Clase{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Fam_Codigo")
+    @Column(name = "Cla_Codigo")
     private Integer id;
-    @Column(name = "Fam_Nombre")
+
+    @Column(name = "Cla_Nombre")
     private String Nombre;
-    @Column(name = "Fam_Orden")
-    private String Orden;
-    @Column(name = "Fam_Estado")
-    private String Estado;
+
+    @ManyToOne
+    @JoinColumn(name = "Cla_CodFamilia",referencedColumnName = "Fam_Codigo")
+    private Familia familia;
 
     //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "Cla_CodFamilia")
-    private List<Clase> clases;
+    @OneToMany(mappedBy = "Pro_CodClase")
+    private List<Producto> productos;
+
+
+    @Column(name = "Cla_Orden")
+    private String Orden;
+    @Column(name = "Cla_Estado")
+    private String Estado;
 
 
     //C mayusca es _

@@ -17,6 +17,6 @@ public class TipoProducto {
     private String Nombre;
 
     //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "Pro_CodTipo")
+    @OneToMany(mappedBy = "tipoProducto")
     private List<Producto> productos;
 }

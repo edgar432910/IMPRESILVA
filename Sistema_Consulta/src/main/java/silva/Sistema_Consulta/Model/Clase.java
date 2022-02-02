@@ -25,7 +25,7 @@ public class Clase{
     private Familia familia;
 
     //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "Pro_CodClase")
+    @OneToMany(mappedBy = "clase")
     private List<Producto> productos;
 
 

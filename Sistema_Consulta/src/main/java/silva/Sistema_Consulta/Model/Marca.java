@@ -22,7 +22,7 @@ public class Marca {
     private String Estado;
 
     //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "Pro_CodMarca")
+    @OneToMany(mappedBy = "marca")
     private List<Producto> productos;
 
 }

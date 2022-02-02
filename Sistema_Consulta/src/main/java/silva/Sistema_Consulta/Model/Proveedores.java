@@ -17,6 +17,7 @@ public class Proveedores {
     private Integer id;
     @Column(name = "NumeroRuc")
     private String ruc;
+
     private String RazonSocial;
 
     @Column(name = "[Tipo de Contribuyente]")

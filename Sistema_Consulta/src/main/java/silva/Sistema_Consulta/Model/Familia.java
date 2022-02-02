@@ -23,7 +23,7 @@ public class Familia {
     private String Estado;
 
     //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "Cla_CodFamilia")
+    @OneToMany(mappedBy = "familia")
     private List<Clase> clases;
 
 

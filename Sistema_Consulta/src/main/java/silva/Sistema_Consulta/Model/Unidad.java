@@ -18,7 +18,7 @@ public class Unidad {
 
 
     //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "Pro_Codigo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "unidad")
     private List<Producto> productos;
 
 

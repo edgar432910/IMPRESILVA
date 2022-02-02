@@ -10,15 +10,11 @@ import java.util.List;
 @Table(name="Unidad")
 public class Unidad {
     @Id
-    @Column(name = "Und_Codigo")
-    private String id;
-    @Column(name = "Und_Nombre")
-    private String Nombre;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    private Integer idUnidad;
+    private String nombre;
 
-    //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "unidad")
-    private List<Producto> productos;
 
 
 }

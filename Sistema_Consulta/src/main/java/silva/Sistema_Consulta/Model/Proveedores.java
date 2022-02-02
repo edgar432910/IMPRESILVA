@@ -9,34 +9,28 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name="Proveedores$")
 public class Proveedores {
     @Id
-    @Column(name = "CODIGO")
-    private String id;
-    @Column(name = "NumeroRuc")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Integer idProveedores;
+
     private String ruc;
 
-    private String RazonSocial;
+    private String razonsocial;
 
-    @Column(name = "[Tipo de Contribuyente]")
+
     private String contribuyente;
-    @Column(name = "[Nombre Comercial]")
-    private String nombreComercial;
-    @Column(name = "[Fecha de Inscripcion]")
+    private String nombrecomercial;
     private LocalDateTime fechaInscripcion;
-    @Column(name = "Fecha_AcT")
     private LocalDateTime fechaActualizacion;
-    @Column(name = "Departamento")
+
     private String departamento;
-    @Column(name = "Provincia")
+
     private String provincia ;
-    @Column(name = "Distrito")
     private String distrito;
-    @Column(name = "Direccion")
     private String direccion;
-    @Column(name = "Telefono")
-    private String numero;
+    private String telefono;
 
 
     @PreUpdate

@@ -10,29 +10,24 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Clase")
 public class Clase{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "Cla_Codigo")
-    private String id;
+    private Integer idClase;
 
-    @Column(name = "Cla_Nombre")
-    private String Nombre;
+    private String nombre;
 
     @ManyToOne
-    @JoinColumn(name = "Cla_CodFamilia",referencedColumnName = "Fam_Codigo")
+    @JoinColumn(name = "id_familia",referencedColumnName = "idFamilia")
     private Familia familia;
 
-    //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "clase")
-    private List<Producto> productos;
 
 
-    @Column(name = "Cla_Orden")
-    private String Orden;
-    @Column(name = "Cla_Estado")
-    private String Estado;
+
+    private String orden;
+
+    private String estado;
 
 
     //C mayusca es _

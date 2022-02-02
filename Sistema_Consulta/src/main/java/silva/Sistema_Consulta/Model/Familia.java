@@ -9,21 +9,19 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Familia")
 public class Familia {
     @Id
-    @Column(name = "Fam_Codigo")
-    private String id;
-    @Column(name = "Fam_Nombre")
-    private String Nombre;
-    @Column(name = "Fam_Orden")
-    private String Orden;
-    @Column(name = "Fam_Estado")
-    private String Estado;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "familia")
-    private List<Clase> clases;
+    private Integer idFamilia;
+
+    private String nombre;
+
+    private String orden;
+
+    private String estado;
+
+
 
 
     //C mayusca es _

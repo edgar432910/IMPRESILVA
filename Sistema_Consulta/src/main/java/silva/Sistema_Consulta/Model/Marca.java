@@ -10,19 +10,18 @@ import java.util.List;
 @Table(name="Marca")
 public class Marca {
     @Id
-    @Column(name = "Mar_Codigo")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "Mar_Nombre")
-    private String Nombre;
+    private Integer idMarca;
 
-    @Column(name = "Mar_Orden")
-    private String Orden;
-    @Column(name = "Mar_Estado")
-    private String Estado;
 
-    //no tiene un id relacionado, se necesita declarar la propiedad
-    @OneToMany(mappedBy = "marca")
-    private List<Producto> productos;
+    private String nombre;
+
+
+    private String orden;
+
+    private String estado;
+
+
 
 }

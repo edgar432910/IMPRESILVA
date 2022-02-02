@@ -12,67 +12,55 @@ import java.time.LocalDateTime;
 public class Producto {
 
     @Id
-    @Column(name = "Pro_Codigo")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "Pro_Codigo2")
-    private String Cod_Alterno;
+    private Integer idProducto;
 
-    @Column(name = "Pro_Nombre1_1")
-    private String Cod_Original;
-    @Column(name = "Pro_Nombre2_2")
-    private String Descripcion;
-    @Column(name = "Pro_Estado")
-    private String Estado;
 
-//    @ManyToOne
-//    @JoinColumn(name = "Pro_CodTipo",referencedColumnName = "Tip_Codigo")
-//    private TipoProducto tipoProducto;
+    private String codAlterno;
+
+    private String codOriginal;
+    private String descripcion;
+    private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "Cla_CodFamilia",referencedColumnName = "Fam_Codigo")
-    private Familia familia;
+    @JoinColumn(name = "id_tipoproducto",referencedColumnName = "idTipoproducto")
+
+    private TipoProducto tipoProducto;
+
+
     @ManyToOne
-    @JoinColumn(name = "Pro_CodUnidad",referencedColumnName = "Und_Codigo")
+    @JoinColumn(name = "id_unidad",referencedColumnName = "idUnidad")
     private Unidad unidad;
 
     @ManyToOne
-    @JoinColumn(name = "Pro_CodClase",referencedColumnName = "Cla_Codigo")
+    @JoinColumn(name = "id_clase",referencedColumnName = "idClase")
     private Clase clase;
 
     @ManyToOne
-    @JoinColumn(name = "Pro_CodMarca",referencedColumnName = "Mar_Codigo")
+    @JoinColumn(name = "id_marca",referencedColumnName = "idMarca")
     private Marca marca;
 
 
-    @Column(name = "Pro_CodMoneda")
-    private String Moneda;
-    @Column(name = "Pro_CodPais")
+
+    private String moneda;
     private String Pais;
-    @Column(name = "Pro_CodProveedor")
     private String Proveedor;
 
-    @Column(name = "Pro_Costo")
     private String Costo;
 
-    @Column(name = "Pro_Modelo1")
-    private String FacturaNumero;
-    @Column(name = "Pro_Modelo2")
-    private String FechaFactura;
-    @Column(name = "Pro_Modelo3")
-    private String Tercero;
-    @Column(name = "Pro_CodMarVehiculo")
-    private String MarcaVehiculo;
+    private String facturanumero;
+    private String fechafactura;
+    private String tercero;
+
+    private String marcavehiculo;
 
     //C mayusca es _
-    @Column(name = "Pro_FechaCreacion")
     private LocalDateTime fechaCreacion;
 
-    @Column(name = "Pro_FechaEdicion")
     private LocalDateTime fechaActualizacion;
 
-    @Column(name = "Pro_AdiCosto")
-    private String Ganancia;
+    private String ganancia;
 
     @PrePersist
     private void asignarFechaCreacion(){

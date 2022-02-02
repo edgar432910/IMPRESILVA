@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="idusuario")
-    private Integer id;
+    private Integer idUsuario;
     private String nombres;
     private String apellidos;
     private String nombreCompleto;
@@ -23,7 +22,9 @@ public class Usuario {
     @Enumerated(EnumType.STRING) // trabaja con jpa
     @Valid
     private Rol rol;
+
     private LocalDateTime fechaCreacion;
+
     @Column(name = "fecha_act")
     private LocalDateTime fechaActualizacion;
 

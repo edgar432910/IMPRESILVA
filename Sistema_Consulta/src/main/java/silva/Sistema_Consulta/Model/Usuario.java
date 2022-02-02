@@ -2,10 +2,14 @@ package silva.Sistema_Consulta.Model;
 
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 
+@Data
+@Entity
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

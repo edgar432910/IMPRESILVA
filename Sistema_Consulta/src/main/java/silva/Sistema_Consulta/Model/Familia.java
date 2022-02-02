@@ -12,9 +12,8 @@ import java.util.List;
 @Table(name="Familia")
 public class Familia {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Fam_Codigo")
-    private Integer id;
+    private String id;
     @Column(name = "Fam_Nombre")
     private String Nombre;
     @Column(name = "Fam_Orden")
@@ -28,17 +27,17 @@ public class Familia {
 
 
     //C mayusca es _
-    private LocalDateTime fechaCreacion;
-
-
-    private LocalDateTime fechaActualizacion;
-
-    @PrePersist
-    private void asignarFechaCreacion(){
-        fechaCreacion=LocalDateTime.now();
-    }
-    @PreUpdate
-    private void  asignarFechaUpdate(){
-        fechaActualizacion=LocalDateTime.now();
-    }
+//    private LocalDateTime fechaCreacion;
+//
+//
+//    private LocalDateTime fechaActualizacion;
+//
+//    @PrePersist
+//    private void asignarFechaCreacion(){
+//        fechaCreacion=LocalDateTime.now();
+//    }
+//    @PreUpdate
+//    private void  asignarFechaUpdate(){
+//        fechaActualizacion=LocalDateTime.now();
+//    }
 }

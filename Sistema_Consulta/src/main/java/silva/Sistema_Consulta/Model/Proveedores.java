@@ -12,9 +12,8 @@ import java.util.Date;
 @Table(name="Proveedores$")
 public class Proveedores {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CODIGO")
-    private Integer id;
+    private String id;
     @Column(name = "NumeroRuc")
     private String ruc;
 

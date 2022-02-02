@@ -12,9 +12,8 @@ import java.time.LocalDateTime;
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Pro_Codigo")
-    private Integer id;
+    private String id;
 
     @Column(name = "Pro_Codigo2")
     private String Cod_Alterno;
@@ -26,12 +25,13 @@ public class Producto {
     @Column(name = "Pro_Estado")
     private String Estado;
 
-    @ManyToOne
-    @JoinColumn(name = "Pro_CodTipo",referencedColumnName = "Tip_Codigo")
-    private TipoProducto tipoProducto;
 //    @ManyToOne
-//    @JoinColumn(name = "Cla_CodFamilia",referencedColumnName = "Fam_Codigo")
-//    private Familia familia;
+//    @JoinColumn(name = "Pro_CodTipo",referencedColumnName = "Tip_Codigo")
+//    private TipoProducto tipoProducto;
+
+    @ManyToOne
+    @JoinColumn(name = "Cla_CodFamilia",referencedColumnName = "Fam_Codigo")
+    private Familia familia;
     @ManyToOne
     @JoinColumn(name = "Pro_CodUnidad",referencedColumnName = "Und_Codigo")
     private Unidad unidad;

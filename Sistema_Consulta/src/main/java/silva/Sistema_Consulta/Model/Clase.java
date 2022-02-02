@@ -13,9 +13,9 @@ import java.util.List;
 @Table(name="Clase")
 public class Clase{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "Cla_Codigo")
-    private Integer id;
+    private String id;
 
     @Column(name = "Cla_Nombre")
     private String Nombre;
@@ -36,17 +36,17 @@ public class Clase{
 
 
     //C mayusca es _
-    private LocalDateTime fechaCreacion;
-
-
-    private LocalDateTime fechaActualizacion;
-
-    @PrePersist
-    private void asignarFechaCreacion(){
-        fechaCreacion=LocalDateTime.now();
-    }
-    @PreUpdate
-    private void  asignarFechaUpdate(){
-        fechaActualizacion=LocalDateTime.now();
-    }
+//    private LocalDateTime fechaCreacion;
+//
+//
+//    private LocalDateTime fechaActualizacion;
+//
+//    @PrePersist
+//    private void asignarFechaCreacion(){
+//        fechaCreacion=LocalDateTime.now();
+//    }
+//    @PreUpdate
+//    private void  asignarFechaUpdate(){
+//        fechaActualizacion=LocalDateTime.now();
+//    }
 }

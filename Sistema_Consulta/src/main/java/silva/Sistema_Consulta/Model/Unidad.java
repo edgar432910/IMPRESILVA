@@ -10,9 +10,8 @@ import java.util.List;
 @Table(name="Unidad")
 public class Unidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Und_Codigo")
-    private Integer id;
+    private String id;
     @Column(name = "Und_Nombre")
     private String Nombre;
 

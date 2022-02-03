@@ -7,8 +7,9 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
+
 @Entity
+@Data
 public class Familia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

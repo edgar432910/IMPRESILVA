@@ -5,15 +5,14 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @Entity
-public class Proveedores {
+public class Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer idProveedores;
+    private Integer idProveedor;
 
     private String ruc;
 

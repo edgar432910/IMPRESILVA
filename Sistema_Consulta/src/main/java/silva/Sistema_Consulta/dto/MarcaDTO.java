@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 
 public class MarcaDTO {
 
+    private Integer idMarca;
     @NotBlank
     private String nombre;
 

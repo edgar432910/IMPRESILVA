@@ -5,7 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
@@ -47,7 +46,7 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor", foreignKey = @ForeignKey(name = "FK_Producto_Proveedores"))
-    private Proveedores Proveedor;
+    private silva.Sistema_Consulta.Model.Proveedor Proveedor;
 
     private String Costo;
 

@@ -1,7 +1,6 @@
 package silva.Sistema_Consulta.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import silva.Sistema_Consulta.Model.Proveedores;
+import silva.Sistema_Consulta.Model.Proveedor;
 
-public interface ProveedoresRepository extends IGenericRepo<Proveedores,Integer> {
+public interface ProveedoresRepository extends IGenericRepo<Proveedor,Integer> {
 }

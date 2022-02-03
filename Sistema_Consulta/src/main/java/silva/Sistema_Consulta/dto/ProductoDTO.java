@@ -3,10 +3,10 @@ package silva.Sistema_Consulta.dto;
 import silva.Sistema_Consulta.Model.*;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
 public class ProductoDTO {
 
+    private Integer idProducto;
     @NotNull
     private String codAlterno;
 
@@ -25,7 +25,7 @@ public class ProductoDTO {
     @NotNull
     private String Pais;
     @NotNull
-    private Proveedores Proveedor;
+    private silva.Sistema_Consulta.Model.Proveedor Proveedor;
     @NotNull
     private String Costo;
     @NotNull

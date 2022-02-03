@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 public class ProveedorDTO {
 
+    private Integer idProveedor;
     @NotNull
     private String ruc;
     @NotNull

@@ -3,25 +3,19 @@ package silva.Sistema_Consulta.Model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Data
 @Entity
-@Table(name="marca")
-public class Marca {
+@Table(name="marca_vehiculo")
+public class MarcaVehiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer idMarca;
-
+    private Integer idMarcaVehiculo;
 
     private String nombre;
 
-
-    private String orden;
-
     private String estado;
-
-
 
 }

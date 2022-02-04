@@ -21,19 +21,21 @@ public class ProductoDTO {
     @NotNull
     private Marca marca;
     @NotNull
-    private String moneda;
-    @NotNull
-    private String Pais;
-    @NotNull
-    private silva.Sistema_Consulta.Model.Proveedor Proveedor;
+    private Proveedor Proveedor;
+
+//    @NotNull
+//    private String moneda;
+//    @NotNull
+//    private String Pais;
+
     @NotNull
     private String Costo;
-    @NotNull
-    private String facturanumero;
-    @NotNull
-    private String fechafactura;
-    @NotNull
-    private String tercero;
+//    @NotNull
+//    private String facturanumero;
+//    @NotNull
+//    private String fechafactura;
+//    @NotNull
+//    private String tercero;
 
 
 

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name="Producto")
+@Table(name="producto")
 public class Producto {
 
     @Id
@@ -41,27 +41,31 @@ public class Producto {
     @JoinColumn(name = "id_marca",referencedColumnName = "idMarca", foreignKey = @ForeignKey(name = "FK_Producto_Marca"))
     private Marca marca;
 
-    private String moneda;
-    private String Pais;
+//    private String moneda;
+//    private String Pais;
 
     @ManyToOne
     @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor", foreignKey = @ForeignKey(name = "FK_Producto_Proveedores"))
-    private silva.Sistema_Consulta.Model.Proveedor Proveedor;
+    private Proveedor Proveedor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_marca_vehiculo", referencedColumnName = "idMarcaVehiculo")
+    private MarcaVehiculo marcavehiculo;
 
     private String Costo;
 
-    private String facturanumero;
-    private String fechafactura;
-    private String tercero;
+//    private String facturanumero;
+//    private String fechafactura;
+//    private String tercero;
 
-    private String marcavehiculo;
+
 
     //C mayusca es _
     private LocalDateTime fechaCreacion;
 
     private LocalDateTime fechaActualizacion;
 
-    private String ganancia;
+//    private String ganancia;
 
     @PrePersist
     private void asignarFechaCreacion(){

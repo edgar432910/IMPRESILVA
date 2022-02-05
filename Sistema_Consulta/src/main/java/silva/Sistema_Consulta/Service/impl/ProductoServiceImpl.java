@@ -16,6 +16,6 @@ public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements 
 
     @Override
     protected IGenericRepo<Producto, Integer> getRepo() {
-        return null;
+        return repo;
     }
 }

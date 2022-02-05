@@ -12,7 +12,7 @@ public class ClaseDTO {
     @NotBlank
     private String nombre;
 
-    @NotBlank
+
     @NotNull
     private FamiliaDTO familia;
 

@@ -16,26 +16,30 @@ public class Proveedor {
 
     private String ruc;
 
-//    private String razonsocial;
-//
-//
-//    private String contribuyente;
-//    private String nombrecomercial;
-//    private LocalDateTime fechaInscripcion;
-//    private LocalDateTime fechaActualizacion;
-//
-//    private String departamento;
-//
-//    private String provincia ;
-//    private String distrito;
-//    private String direccion;
-//    private String telefono;
-//
-//
-//    @PreUpdate
-//    private void  asignarFechaUpdate(){
-//        fechaActualizacion=LocalDateTime.now();
-//    }
+    private String razonsocial;
+
+
+    private String contribuyente;
+    private String nombrecomercial;
+    private LocalDateTime fechaInscripcion;
+    private LocalDateTime fechaActualizacion;
+
+    private String departamento;
+
+    private String provincia ;
+    private String distrito;
+    private String direccion;
+    private String telefono;
+
+
+    @PreUpdate
+    private void  asignarFechaUpdate(){
+        fechaActualizacion=LocalDateTime.now();
+    }
+    @PrePersist
+    private void asignarFechaCreacion(){
+        fechaInscripcion=LocalDateTime.now();
+    }
 
 
 }

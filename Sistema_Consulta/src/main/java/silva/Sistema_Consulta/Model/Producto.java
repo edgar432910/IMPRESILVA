@@ -23,10 +23,10 @@ public class Producto {
     private String descripcion;
     private String estado;
 
-    @ManyToOne
-    @JoinColumn(name = "id_tipoproducto",referencedColumnName = "idTipoproducto",  foreignKey = @ForeignKey(name = "FK_Producto_TipoProducto"))
-
-    private TipoProducto tipoProducto;
+//    @ManyToOne
+//    @JoinColumn(name = "id_tipoproducto",referencedColumnName = "idTipoproducto",  foreignKey = @ForeignKey(name = "FK_Producto_TipoProducto"))
+//
+//    private TipoProducto tipoProducto;
 
 
     @ManyToOne
@@ -41,8 +41,8 @@ public class Producto {
     @JoinColumn(name = "id_marca",referencedColumnName = "idMarca", foreignKey = @ForeignKey(name = "FK_Producto_Marca"))
     private Marca marca;
 
-//    private String moneda;
-//    private String Pais;
+    private String moneda;
+    private String Pais;
 
     @ManyToOne
     @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor", foreignKey = @ForeignKey(name = "FK_Producto_Proveedores"))
@@ -54,9 +54,9 @@ public class Producto {
 
     private String Costo;
 
-//    private String facturanumero;
-//    private String fechafactura;
-//    private String tercero;
+    private String facturanumero;
+    private String fechaIngreso;
+    private String tercero;
 
 
 
@@ -65,7 +65,7 @@ public class Producto {
 
     private LocalDateTime fechaActualizacion;
 
-//    private String ganancia;
+    private String ganancia;
 
     @PrePersist
     private void asignarFechaCreacion(){

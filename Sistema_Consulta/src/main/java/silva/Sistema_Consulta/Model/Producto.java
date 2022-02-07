@@ -49,7 +49,7 @@ public class Producto {
     private Proveedor Proveedor;
 
     @ManyToOne
-    @JoinColumn(name = "id_marca_vehiculo", referencedColumnName = "idMarcaVehiculo")
+    @JoinColumn(name = "id_marca_vehiculo", referencedColumnName = "idMarcaVehiculo", foreignKey = @ForeignKey(name = "FK_Producto_MarcaVehiculo"))
     private MarcaVehiculo marcavehiculo;
 
     private String Costo;

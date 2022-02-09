@@ -11,31 +11,31 @@ import { Familia } from '../_model/familia';
   providedIn: 'root'
 })
 export class FamiliaService {
-  // familiaCambio: Subject<Familia[]> = new Subject<Familia[]>();
-  // mensajeCambio: Subject<string> = new Subject<string>();
+  familiaCambio: Subject<Familia[]> = new Subject<Familia[]>();
+  mensajeCambio: Subject<string> = new Subject<string>();
 
   private url: string = `${environment.HOST}/Familia`;  
 
   constructor( private http:HttpClient) { }
 
   listar(){
-    return this.http.get(this.url);
+    return this.http.get<Familia[]>(this.url);
   }
 
-  // listarPorId(id: number){
-  //   return this.http.get<Familia>(`${this.url}/${id}`);
-  // }
+  listarPorId(id: number){
+    return this.http.get<Familia>(`${this.url}/${id}`);
+  }
 
-  // registrar(familia : Familia){
-  //   return this.http.post(this.url, familia);
-  // }
+  registrar(familia : Familia){
+    return this.http.post(this.url, familia);
+  }
 
-  // modificar(familia : Familia){
-  //   return this.http.put(this.url, familia);
-  // }
+  modificar(familia : Familia){
+    return this.http.put(this.url, familia);
+  }
 
-  // eliminar(id: number){
-  //   return this.http.delete(`${this.url}/${id}`);
-  // }
+  eliminar(id: number){
+    return this.http.delete(`${this.url}/${id}`);
+  }
 
 }

@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material/material.module';
+import { FamiliaEdicionComponent } from './pages/familia/familia-edicion/familia-edicion.component';
+import { ClaseEdicionComponent } from './pages/clase/clase-edicion/clase-edicion.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { MaterialModule } from './material/material/material.module';
     MarcaComponent,
     UnidadComponent,
     MarcavehiculoComponent,
-    ProductoComponent
+    ProductoComponent,
+    FamiliaEdicionComponent,
+    ClaseEdicionComponent
   ],
   imports: [
     BrowserModule,

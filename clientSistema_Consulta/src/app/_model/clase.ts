@@ -5,5 +5,5 @@ export class Clase{
     nombre:string;
     orden:string;
     estado:string;
-    idFamilia:Familia;
+    familia:Familia;
 }

@@ -16,7 +16,6 @@ export class ClaseEdicionComponent implements OnInit {
   edicion: boolean = false;
   form: FormGroup;
   familias:Familia[];
-
   constructor(   
     private route: ActivatedRoute,
     private router: Router,
@@ -50,15 +49,18 @@ export class ClaseEdicionComponent implements OnInit {
   initForm(){
 
     if (this.edicion) {
+
+     
       this.claseService.listarPorId(this.id).subscribe(data => {
+       
         this.form = new FormGroup({
           'id': new FormControl(data.idClase),
           'nombre': new FormControl(data.nombre),
           'estado': new FormControl(data.estado),
           'orden': new FormControl(data.orden),
-          'familia':new FormControl(data.familia)
+          'familia':new FormControl(data.familia.idFamilia)
         });
-        console.log(data.familia.nombre);
+        
       });
     }
 
@@ -67,14 +69,18 @@ export class ClaseEdicionComponent implements OnInit {
   operar(){
     let clase = new Clase();
 
-      clase.idClase == this.form.value['id'];    
+      clase.idClase = this.form.value['id'];    
       clase.nombre = this.form.value['nombre'];
       clase.estado = this.form.value['estado'];
       clase.orden = this.form.value['orden'];
       clase.familia=this.form.value['familia'];
-      console.log(clase);
+      
 
       if(this.edicion){
+        let familiaupdate= new Familia();
+        familiaupdate.idFamilia=this.form.value['familia'];
+        clase.familia=familiaupdate;
+
         this.claseService.modificar(clase).subscribe(()=>{
           this.claseService.listar().subscribe((data=>{
             this.claseService.claseCambio.next(data);

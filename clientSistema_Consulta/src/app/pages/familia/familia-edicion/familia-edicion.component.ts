@@ -60,7 +60,9 @@ export class FamiliaEdicionComponent implements OnInit {
 
     if(this.edicion){
 
+      console.log(familia);
       this.familiaService.modificar(familia).subscribe(()=>{
+        
         this.familiaService.listar().subscribe((data=>{
           this.familiaService.familiaCambio.next(data);
           this.familiaService.mensajeCambio.next('SE Actualizo')

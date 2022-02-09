@@ -20,7 +20,7 @@
     <mat-form-field appearance="fill">
         <mat-label>Familia</mat-label>
         <mat-select formControlName="familia">
-            <mat-option  *ngFor="let familia of familias" [value]="familia">
+            <mat-option  *ngFor="let familia of familias" [value]="familia.idFamilia">
                 {{familia.nombre}}
             </mat-option>
         </mat-select>

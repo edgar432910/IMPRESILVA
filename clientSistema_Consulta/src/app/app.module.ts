@@ -13,10 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material/material.module';
-import { FamiliaEdicionComponent } from './pages/familia/familia-edicion/familia-edicion.component';
 import { ClaseEdicionComponent } from './pages/clase/clase-edicion/clase-edicion.component';
+import { FamiliaDialogoComponent } from './pages/familia/familia-dialogo/familia-dialogo.component';
+import { ClaseDialogoComponent } from './pages/clase/clase-dialogo/clase-dialogo.component';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { ClaseEdicionComponent } from './pages/clase/clase-edicion/clase-edicion
     UnidadComponent,
     MarcavehiculoComponent,
     ProductoComponent,
-    FamiliaEdicionComponent,
-    ClaseEdicionComponent
+    ClaseEdicionComponent,
+    FamiliaDialogoComponent,
+    ClaseDialogoComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ClaseEdicionComponent } from './pages/clase/clase-edicion/clase-edicion
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

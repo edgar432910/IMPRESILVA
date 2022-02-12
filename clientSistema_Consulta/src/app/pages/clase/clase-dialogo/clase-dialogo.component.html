@@ -1,4 +1,4 @@
-<form class="example-container" [formGroup]="form" #frmPaciente="ngForm" (ngSubmit)="operar()">
+<form class="example-container" [formGroup]="form" #frmPaciente="ngForm" (ngSubmit)="operar()" >
 
     <div [hidden]="true">
         <mat-form-field class="example-full-width">
@@ -7,11 +7,22 @@
     </div>
 
     <mat-form-field class="example-full-width">
+        <mat-label >Nombre</mat-label>
+
         <input matInput placeholder="Nombre" required formControlName="nombre">
+        <mat-error  *ngIf="form.controls['nombre'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
+        <mat-label >Estado</mat-label>
+
         <input matInput placeholder="Estado" required formControlName="estado">
+
+        <mat-error  *ngIf="form.controls['estado'].hasError('required')">
+            Este campo es obligatoriooo
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -24,6 +35,9 @@
                 {{familia.nombre}}
             </mat-option>
         </mat-select>
+        <mat-error  *ngIf="form.controls['familia'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
     </mat-form-field>
     <!-- <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Familia</mat-label>
@@ -45,8 +59,8 @@
         <mat-icon>done</mat-icon>
         <span>Aceptar</span>
     </button>
-    <button mat-raised-button color="accent" routerLink='/pages/clase' type="button">
-        <mat-icon>close</mat-icon>
-        <span>Cancelar</span>
-    </button>
+    <button mat-raised-button color="accent" (click)="cerrar()"><mat-icon>close</mat-icon>
+        <span>Cancelar</span></button>
+   
 </form>
+

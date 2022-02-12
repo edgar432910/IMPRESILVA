@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map, Observable, startWith } from 'rxjs';
 import { Clase } from 'src/app/_model/clase';
 import { Familia } from 'src/app/_model/familia';
 import { ClaseService } from 'src/app/_service/clase.service';
@@ -12,6 +13,11 @@ import { FamiliaService } from 'src/app/_service/familia.service';
   styleUrls: ['./clase-edicion.component.css']
 })
 export class ClaseEdicionComponent implements OnInit {
+
+
+  
+  filteredOptions: Observable<Familia[]>;
+  O_Familia = new FormControl();
   id: number = 0;
   edicion: boolean = false;
   form: FormGroup;
@@ -27,9 +33,10 @@ export class ClaseEdicionComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.familiaService.listar().subscribe(data =>{
+     this.familiaService.listar().subscribe(data =>{
       this.familias=data;
-    })
+    });
+
     this.form = new FormGroup({
       'id': new FormControl(0),
       'nombre': new FormControl(''),
@@ -38,6 +45,7 @@ export class ClaseEdicionComponent implements OnInit {
       'familia': new FormControl('')
 
     });
+    
 
     this.route.params.subscribe(data => {
       this.id = data['id'];
@@ -46,10 +54,16 @@ export class ClaseEdicionComponent implements OnInit {
     });
 
   }
+
   initForm(){
+    this.filteredOptions= this.O_Familia.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value)),
+     )
 
     if (this.edicion) {
 
+      
      
       this.claseService.listarPorId(this.id).subscribe(data => {
        
@@ -63,7 +77,12 @@ export class ClaseEdicionComponent implements OnInit {
         
       });
     }
+    
 
+  }
+  private _filter(value: any): Familia[]{
+    console.log(value)    
+    return this.familias.filter(option => option.nombre.includes(value));
   }
 
   operar(){
@@ -99,6 +118,10 @@ export class ClaseEdicionComponent implements OnInit {
     this.router.navigate(['/pages/clase']);
       
     }
+
+
+
+
 
 
 }

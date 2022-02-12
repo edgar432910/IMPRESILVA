@@ -1,0 +1,14 @@
+<div>
+    <mat-form-field>
+        <input matInput placeholder="Nombres" [(ngModel)]="familia.nombre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Orden" [(ngModel)]="familia.orden">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Estado" [(ngModel)]="familia.estado">
+    </mat-form-field>
+   
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cerrar()">Cancelar</button>

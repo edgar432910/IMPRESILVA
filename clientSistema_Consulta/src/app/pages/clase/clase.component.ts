@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { filter } from 'rxjs';
+import { filter, switchMap } from 'rxjs';
 import { Clase } from 'src/app/_model/clase';
 import { ClaseService } from 'src/app/_service/clase.service';
+import { ClaseDialogoComponent } from './clase-dialogo/clase-dialogo.component';
 
 @Component({
   selector: 'app-clase',
@@ -20,7 +22,7 @@ export class ClaseComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private claseService:ClaseService ,
+  constructor(private claseService:ClaseService , private dialog: MatDialog,
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class ClaseComponent implements OnInit {
     });
     this.claseService.listar().subscribe(data=>{
       this.dataSource= new MatTableDataSource(data);
-      console.log(this.dataSource);
+    
       this.dataSource.paginator=this.paginator;
       this.dataSource.sort=this.sort;
     });
@@ -48,6 +50,29 @@ export class ClaseComponent implements OnInit {
     /*this.dataSource.filterPredicate = (data: Paciente, filter: string) => {
       return data.nombres.toLowerCase().includes(filter) || data.apellidos.toLowerCase().includes(filter);
     }})*/
+  }
+
+  crearTabla(data: Clase[]) {
+    this.dataSource = new MatTableDataSource(data);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  abrirDialogo(clase?: Clase) {
+    this.dialog.open(ClaseDialogoComponent, {
+      width: '250px',
+      data: clase
+    });
+  }
+
+  eliminar(clase: Clase) {
+    this.claseService.eliminar(clase.idClase).pipe(switchMap( ()=> {
+      return this.claseService.listar();
+    }))      
+    .subscribe(data => {
+      this.claseService.setClaseCambio(data);
+      this.claseService.setMensajeCambio('SE ELIMINO');
+    });
   }
 
 }

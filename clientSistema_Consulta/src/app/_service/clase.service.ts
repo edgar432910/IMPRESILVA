@@ -3,36 +3,36 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Clase } from '../_model/clase';
+import { GenericService } from './generic.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClaseService {
+export class ClaseService extends GenericService<Clase>{
 
   claseCambio: Subject<Clase[]> = new Subject<Clase[]>();
   mensajeCambio: Subject<string> = new Subject<string>();
-  private url: string = `${environment.HOST}/Clase`;  
-  constructor(private http:HttpClient) { }
+  constructor(protected override http:HttpClient) {
+    super(
+      http,`${environment.HOST}/Clase`
+    );
+  }
 
   
-  listar(){
-    return this.http.get<Clase[]>(this.url);
+  getClaseCambio(){
+    return this.claseCambio.asObservable();
   }
 
-  listarPorId(id: number){
-    return this.http.get<Clase>(`${this.url}/${id}`);
+  setClaseCambio(clase: Clase[]){
+    this.claseCambio.next(clase);
   }
 
-  registrar(clase : Clase){
-    return this.http.post(this.url, clase);
+  getMensajeCambio(){
+    return this.mensajeCambio.asObservable();
   }
 
-  modificar(clase : Clase){
-    return this.http.put(this.url, clase);
-  }
-
-  eliminar(id: number){
-    return this.http.delete(`${this.url}/${id}`);
+  setMensajeCambio(mensaje: string){
+    this.mensajeCambio.next(mensaje);
   }
 
 

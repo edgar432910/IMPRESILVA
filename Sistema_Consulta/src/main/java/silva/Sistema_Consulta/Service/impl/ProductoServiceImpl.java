@@ -8,6 +8,8 @@ import silva.Sistema_Consulta.Repository.IGenericRepo;
 import silva.Sistema_Consulta.Repository.ProductoRepository;
 import silva.Sistema_Consulta.Service.IProductoService;
 
+import java.util.List;
+
 @Service
 public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements IProductoService {
 
@@ -17,5 +19,10 @@ public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements 
     @Override
     protected IGenericRepo<Producto, Integer> getRepo() {
         return repo;
+    }
+
+    @Override
+    public List<Producto> BuscarProducto(String a) throws Exception {
+        return null;
     }
 }

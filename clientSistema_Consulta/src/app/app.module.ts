@@ -18,6 +18,8 @@ import { MaterialModule } from './material/material/material.module';
 import { ClaseEdicionComponent } from './pages/clase/clase-edicion/clase-edicion.component';
 import { FamiliaDialogoComponent } from './pages/familia/familia-dialogo/familia-dialogo.component';
 import { ClaseDialogoComponent } from './pages/clase/clase-dialogo/clase-dialogo.component';
+import { MarcaDialogoComponent } from './pages/marca/marca-dialogo/marca-dialogo.component';
+import { UnidadDialogoComponent } from './pages/unidad/unidad-dialogo/unidad-dialogo.component';
 
 
 @NgModule({
@@ -32,7 +34,10 @@ import { ClaseDialogoComponent } from './pages/clase/clase-dialogo/clase-dialogo
     ProductoComponent,
     ClaseEdicionComponent,
     FamiliaDialogoComponent,
-    ClaseDialogoComponent
+    ClaseDialogoComponent,
+    MarcaDialogoComponent,
+    UnidadDialogoComponent,
+    
   ],
   imports: [
     BrowserModule,

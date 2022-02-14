@@ -28,7 +28,7 @@
     <mat-form-field class="example-full-width">
         <input matInput placeholder="Orden" required formControlName="orden">
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <!-- <mat-form-field appearance="fill">
         <mat-label>Familia</mat-label>
         <mat-select formControlName="familia">
             <mat-option  *ngFor="let familia of familias" [value]="familia.idFamilia">
@@ -38,28 +38,35 @@
         <mat-error  *ngIf="form.controls['familia'].hasError('required')">
             Este campo es obligatorio
         </mat-error>
-    </mat-form-field>
-    <!-- <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Familia</mat-label>
-        <input type="text"
-               placeholder="Seleccione familia"
-               aria-label="Familia"
-               matInput
-               [formControl]="O_Familia"
-               [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option *ngFor="let familia of filteredOptions | async" [value]="familia.nombre">
-            {{familia.nombre}}
-          </mat-option>
+    </mat-form-field> -->
+    <!-- <mat-form-field>
+        <input type="text" placeholder="Médico" matInput [matAutocomplete]="autoMedico" 
+        [formControl]="myControlMedico" formControlName="medico">
+
+        <mat-autocomplete #autoMedico="matAutocomplete" [displayWith]="mostrarMedico">
+            <mat-option *ngFor="let m of medicosFiltrados$ | async" [value]="m">
+                {{ m.nombres }} {{m.apellidos}}
+            </mat-option>
         </mat-autocomplete>
-      </mat-form-field> -->
+    </mat-form-field> -->
+    <mat-form-field>
+        <input type="text" placeholder="Familia" matInput [matAutocomplete]="autoFamilia" 
+        [formControl]="myControlFamilia" formControlName="familia">
+
+        <mat-autocomplete autoActiveFirstOption  #autoFamilia="matAutocomplete" [displayWith]="mostrarFamilia">
+            <mat-option *ngFor="let m of familiaFiltrados$ | async" [value]="m">
+                {{ m.nombre }} 
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+   
 
 
     <button mat-raised-button color="primary" type="submit">
         <mat-icon>done</mat-icon>
         <span>Aceptar</span>
     </button>
-    <button mat-raised-button color="accent" (click)="cerrar()"><mat-icon>close</mat-icon>
+    <button mat-raised-button color="accent" (click)="cerrar()" type="button"><mat-icon>close</mat-icon>
         <span>Cancelar</span></button>
    
 </form>

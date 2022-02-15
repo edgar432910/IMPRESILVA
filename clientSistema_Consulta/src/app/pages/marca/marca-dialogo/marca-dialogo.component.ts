@@ -51,13 +51,18 @@ export class MarcaDialogoComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    // let marcafinal=new Marca();
-    // marcafinal.idMarca=this.form.value.id['id']
-    console.log(this.form.value);
+    let marcafinal=new Marca();
+    marcafinal.idMarca  =   this.form.value['id'];
+    marcafinal.estado   =   this.form.value['estado'];
+    marcafinal.orden    =   this.form.value['orden'];
+    marcafinal.nombre   =   this.form.value['nombre'];
+
+    console.log(marcafinal);
     if (this.marca != null && this.marca.idMarca > 0) {
+     
 
       //MODIFICAR
-      this.marcaService.modificar(this.form.value).pipe(switchMap( ()=> {
+      this.marcaService.modificar(marcafinal).pipe(switchMap( ()=> {
         return this.marcaService.listar();
       }))
       .subscribe(data => {

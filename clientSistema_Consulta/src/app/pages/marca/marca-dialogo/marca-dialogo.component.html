@@ -1,4 +1,4 @@
-<form class="example-container" [formGroup]="form" #frmPaciente="ngForm" (ngSubmit)="operar()">
+<form class="example-container" [formGroup]="form" #frmMarca="ngForm" (ngSubmit)="operar()">
 
     <div [hidden]="true">
         <mat-form-field class="example-full-width">
@@ -22,7 +22,7 @@
         </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <mat-label >Orden</mat-label>
+        <mat-label >Estado</mat-label>
 
         <input matInput placeholder="Estado" required formControlName="estado">
         <mat-error  *ngIf="form.controls['estado'].hasError('required')">

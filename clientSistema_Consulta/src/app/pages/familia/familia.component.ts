@@ -53,7 +53,7 @@ export class FamiliaComponent implements OnInit {
 
   abrirDialogo(familia?: Familia) {
     this.dialog.open(FamiliaDialogoComponent, {
-      width: '250px',
+      width: '300px',
       data: familia
     });
   }

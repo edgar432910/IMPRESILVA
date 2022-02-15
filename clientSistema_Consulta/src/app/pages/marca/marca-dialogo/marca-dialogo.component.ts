@@ -57,7 +57,7 @@ export class MarcaDialogoComponent implements OnInit {
     marcafinal.orden    =   this.form.value['orden'];
     marcafinal.nombre   =   this.form.value['nombre'];
 
-    console.log(marcafinal);
+   
     if (this.marca != null && this.marca.idMarca > 0) {
      
 

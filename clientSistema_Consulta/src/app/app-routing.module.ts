@@ -5,6 +5,8 @@ import { ClaseComponent } from './pages/clase/clase.component';
 // import { FamiliaEdicionComponent } from './pages/familia/familia-edicion/familia-edicion.component';
 import { FamiliaComponent } from './pages/familia/familia.component';
 import { MarcaComponent } from './pages/marca/marca.component';
+import { MarcavehiculoComponent } from './pages/marcavehiculo/marcavehiculo.component';
+import { UnidadComponent } from './pages/unidad/unidad.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,20 @@ const routes: Routes = [
     // ]
   },{
     path: 'pages/marca', component: MarcaComponent, 
+    // children:[
+    //   // {path:'nuevo', component:FamiliaEdicionComponent },
+    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
+
+    // ]
+  },{
+    path: 'pages/marcaVehiculo', component: MarcavehiculoComponent, 
+    // children:[
+    //   // {path:'nuevo', component:FamiliaEdicionComponent },
+    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
+
+    // ]
+  },{
+    path: 'pages/unidad', component: UnidadComponent, 
     // children:[
     //   // {path:'nuevo', component:FamiliaEdicionComponent },
     //   // {path:'edicion/:id', component:FamiliaEdicionComponent }

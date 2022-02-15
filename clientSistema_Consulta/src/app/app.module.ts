@@ -20,6 +20,7 @@ import { FamiliaDialogoComponent } from './pages/familia/familia-dialogo/familia
 import { ClaseDialogoComponent } from './pages/clase/clase-dialogo/clase-dialogo.component';
 import { MarcaDialogoComponent } from './pages/marca/marca-dialogo/marca-dialogo.component';
 import { UnidadDialogoComponent } from './pages/unidad/unidad-dialogo/unidad-dialogo.component';
+import { MarcavehiculoDialogoComponent } from './pages/marcavehiculo/marcavehiculo-dialogo/marcavehiculo-dialogo.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { UnidadDialogoComponent } from './pages/unidad/unidad-dialogo/unidad-dia
     ClaseDialogoComponent,
     MarcaDialogoComponent,
     UnidadDialogoComponent,
+    MarcavehiculoDialogoComponent,
     
   ],
   imports: [

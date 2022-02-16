@@ -21,6 +21,8 @@ import { ClaseDialogoComponent } from './pages/clase/clase-dialogo/clase-dialogo
 import { MarcaDialogoComponent } from './pages/marca/marca-dialogo/marca-dialogo.component';
 import { UnidadDialogoComponent } from './pages/unidad/unidad-dialogo/unidad-dialogo.component';
 import { MarcavehiculoDialogoComponent } from './pages/marcavehiculo/marcavehiculo-dialogo/marcavehiculo-dialogo.component';
+import { ProveedorDialogoComponent } from './pages/proveedor/proveedor-dialogo/proveedor-dialogo.component';
+import { ProductoDialogoComponent } from './pages/producto/producto-dialogo/producto-dialogo.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { MarcavehiculoDialogoComponent } from './pages/marcavehiculo/marcavehicu
     MarcaDialogoComponent,
     UnidadDialogoComponent,
     MarcavehiculoDialogoComponent,
+    ProveedorDialogoComponent,
+    ProductoDialogoComponent,
     
   ],
   imports: [

@@ -1,0 +1,94 @@
+<form class="example-container" [formGroup]="form" #frmMarca="ngForm" (ngSubmit)="operar()">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+    <mat-form-field class="example-full-width">
+        <mat-label >RUC</mat-label>
+
+        <input matInput placeholder="RUC" required formControlName="ruc">
+        <mat-error  *ngIf="form.controls['ruc'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Contribuyente</mat-label>
+
+        <input matInput placeholder="Contribuyente" required formControlName="contribuyente">
+        <mat-error  *ngIf="form.controls['contribuyente'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Departamento</mat-label>
+
+        <input matInput placeholder="Departamento" required formControlName="departamento">
+        <mat-error  *ngIf="form.controls['departamento'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Direccion</mat-label>
+
+        <input matInput placeholder="Direccion" required formControlName="direccion">
+        <mat-error  *ngIf="form.controls['direccion'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Distrito</mat-label>
+
+        <input matInput placeholder="Distrito" required formControlName="distrito">
+        <mat-error  *ngIf="form.controls['distrito'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Nombre Comercial</mat-label>
+
+        <input matInput placeholder="Nombre Comercial" required formControlName="nombrecomercial">
+        <mat-error  *ngIf="form.controls['nombrecomercial'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Provincia</mat-label>
+
+        <input matInput placeholder="Provincia" required formControlName="provincia">
+        <mat-error  *ngIf="form.controls['provincia'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Razon Social</mat-label>
+
+        <input matInput placeholder="Razon Social" required formControlName="razonsocial">
+        <mat-error  *ngIf="form.controls['razonsocial'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label >Telefono</mat-label>
+
+        <input matInput placeholder="Telefono" required formControlName="telefono">
+        <mat-error  *ngIf="form.controls['telefono'].hasError('required')">
+            Este campo es obligatorio
+        </mat-error>
+    </mat-form-field>
+    
+    
+
+    
+    <button mat-raised-button color="primary" type="submit">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" (click)="cerrar()" type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+
+</form>

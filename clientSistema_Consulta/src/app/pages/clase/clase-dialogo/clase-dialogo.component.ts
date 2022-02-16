@@ -17,6 +17,7 @@ export class ClaseDialogoComponent implements OnInit {
   clase:Clase;
   familias:Familia[];
   form:FormGroup;
+  
   myControlFamilia: FormControl = new FormControl('',[Validators.required]);
   familiaFiltrados$: Observable<Familia[]>;
 

@@ -45,6 +45,7 @@ export class ClaseComponent implements OnInit {
     
 
   }
+  
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim().toLowerCase();
     /*this.dataSource.filterPredicate = (data: Paciente, filter: string) => {

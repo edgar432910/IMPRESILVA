@@ -25,7 +25,7 @@ export class UnidadService extends GenericService<Unidad> {
     return this.unidadCambio.asObservable();
   }
 
-  setMarcaVehiculoCambio(unidad: Unidad[]){
+  setUnidadCambio(unidad: Unidad[]){
     this.unidadCambio.next(unidad);
   }
 

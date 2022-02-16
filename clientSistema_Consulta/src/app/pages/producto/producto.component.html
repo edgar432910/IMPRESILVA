@@ -1,1 +1,67 @@
-<p>producto works!</p>
+
+
+
+<div class="example-container mat-elevation-z8">
+
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar Producto">
+      </mat-form-field>
+    </div>
+  
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="idProducto">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> idProducto </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.idProducto}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="clase">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.clase.nombre}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="marca">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Marca </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.marca.nombre}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="codAlterno">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> CodAlterno </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.codAlterno}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="codOriginal">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> CodOriginal </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.codOriginal}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="descripcion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> descripcion </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+      </ng-container>
+     
+  
+  
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="abrirDialogo(element)">
+            <mat-icon>ballot</mat-icon>
+          </button>
+          <button mat-button color="accent" (click)="eliminar(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  <br>
+  
+  <button mat-fab color="accent" (click)="abrirDialogo()" style="float: right; margin-right: 20px">
+    <mat-icon>create</mat-icon>
+  </button>

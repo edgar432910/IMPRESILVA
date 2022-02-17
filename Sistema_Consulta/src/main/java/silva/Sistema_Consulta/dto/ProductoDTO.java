@@ -26,7 +26,7 @@ public class ProductoDTO {
     @NotNull
     private ProveedorDTO proveedor;
     @NotNull
-    private MarcaVehiculoDTO vehiculo;
+    private MarcaVehiculoDTO marcavehiculo;
 
     @NotNull
     private String moneda;
@@ -34,11 +34,11 @@ public class ProductoDTO {
     private String pais;
 
     @NotNull
-    private String Costo;
+    private String costo;
     @NotNull
     private String facturanumero;
     @NotNull
-    private String fechafactura;
+    private String fechaIngreso;
     @NotNull
     private String tercero;
     @NotNull

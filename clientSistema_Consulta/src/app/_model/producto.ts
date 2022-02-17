@@ -15,9 +15,10 @@ export class Producto{
     estado:string;
     facturanumero:string;
     fechaIngreso:string;
-    ganacia:string;
+    ganancia:string;
     moneda:string;
     tercero:string;
+
     proveedor:Proveedor;
     clase:Clase;
     marcavehiculo:MarcaVehiculo;

@@ -85,6 +85,7 @@ export class ProductoDialogoComponent implements OnInit {
       if (this.producto != null && this.producto.idProducto > 0) {
 
         this.LLENARCAMPO(this.producto);
+        console.log(this.producto);
 
         this.form= new FormGroup({
           'id': new FormControl(this.producto.idProducto),
@@ -95,11 +96,11 @@ export class ProductoDialogoComponent implements OnInit {
           'descripcion': new FormControl(this.producto.descripcion,[Validators.required]),
           'facturanumero': new FormControl(this.producto.facturanumero,[Validators.required]),
           'fechaIngreso': new FormControl(this.producto.fechaIngreso,[Validators.required]),
-          'ganacia': new FormControl(this.producto.ganacia,[Validators.required]),
+          'ganancia': new FormControl(this.producto.ganancia,[Validators.required]),
           'moneda': new FormControl(this.producto.moneda,[Validators.required]),
           'tercero': new FormControl( this.producto.tercero ,[Validators.required]),
           'proveedor': this.myControlProveedor ,
-          '': this.myControlClase ,
+          'clase': this.myControlClase ,
           'marcavehiculo': this.myControlMarcaVehiculo ,
           'marca': this.myControlMarca,
           'unidad': this.myControlUnidad
@@ -126,11 +127,11 @@ export class ProductoDialogoComponent implements OnInit {
           'descripcion': new FormControl('',[Validators.required]),
           'facturanumero': new FormControl('',[Validators.required]),
           'fechaIngreso': new FormControl('',[Validators.required]),
-          'ganacia': new FormControl('',[Validators.required]),
+          'ganancia': new FormControl('',[Validators.required]),
           'moneda': new FormControl('',[Validators.required]),
           'tercero': new FormControl('',[Validators.required]),
           'proveedor': this.myControlProveedor ,
-          '': this.myControlClase ,
+          'clase': this.myControlClase ,
           'marcavehiculo': this.myControlMarcaVehiculo ,
           'marca': this.myControlMarca,
           'unidad': this.myControlUnidad
@@ -238,7 +239,7 @@ export class ProductoDialogoComponent implements OnInit {
      productofinal.estado = this.form.value['estado'];
      productofinal.facturanumero = this.form.value['facturanumero'];
      productofinal.fechaIngreso = this.form.value['fechaIngreso'];    
-     productofinal.ganacia = this.form.value['ganacia'];
+     productofinal.ganancia = this.form.value['ganancia'];
      productofinal.moneda = this.form.value['moneda'];
      productofinal.tercero = this.form.value['tercero'];
 
@@ -249,10 +250,10 @@ export class ProductoDialogoComponent implements OnInit {
      let UnidadU = new Unidad();
 
      ProveedorU.idProveedor=this.form.value['proveedor'].idProveedor;
-     ClaseU.idClase=this.form.value[''].idClase;
-      MarcaVehiculoU = this.form.value['marcavehiculo'].idMarcaVehiculo;
-      MarcaU = this.form.value['marca'].idMarca;
-      UnidadU = this.form.value['unidad'].idUnidad;
+     ClaseU.idClase=this.form.value['clase'].idClase;
+      MarcaVehiculoU.idMarcaVehiculo = this.form.value['marcavehiculo'].idMarcaVehiculo;
+      MarcaU.idMarca = this.form.value['marca'].idMarca;
+      UnidadU.idUnidad = this.form.value['unidad'].idUnidad;
 
       productofinal.proveedor= ProveedorU;
       productofinal.clase=ClaseU ;
@@ -261,7 +262,7 @@ export class ProductoDialogoComponent implements OnInit {
       productofinal.unidad=UnidadU ;
 
       
-     
+     console.log(productofinal);
 
     if (this.producto != null && this.producto.idProducto > 0) {
       
@@ -276,7 +277,7 @@ export class ProductoDialogoComponent implements OnInit {
     }else{
       //REGISTRAR
       
-      this.productoService.registrar(productofinal).pipe(switchMap( ()=> {
+      this.productoService.registrar(this.form.value).pipe(switchMap( ()=> {
         return this.productoService.listar();
       }))      
       .subscribe(data => {

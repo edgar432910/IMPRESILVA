@@ -87,5 +87,14 @@ public class ClaseController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Clase>> Buscar() throws Exception {
+
+
+        List<Clase> lista= service.BuscarClase();
+        System.out.println( lista);
+        return new ResponseEntity<>(lista, HttpStatus.OK);
+    }
+
 
 }

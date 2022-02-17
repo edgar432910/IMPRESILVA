@@ -62,7 +62,7 @@ export class ProductoComponent implements OnInit {
 
   abrirDialogo(producto?: Producto) {
     this.dialog.open(ProductoDialogoComponent, {
-      width: '250px',
+      width: '500px',
       data: producto
     });
   }

@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import silva.Sistema_Consulta.Model.Clase;
 import silva.Sistema_Consulta.Model.Producto;
 import silva.Sistema_Consulta.Service.IProductoService;
 import silva.Sistema_Consulta.dto.ProductoDTO;
+import silva.Sistema_Consulta.dto.SearchProductoDTO;
 import silva.Sistema_Consulta.exception.ModeloNotFoundException;
 
 import javax.validation.Valid;
@@ -87,4 +89,12 @@ public class ProductoController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Producto>> Buscar(@RequestBody SearchProductoDTO searchProductoDTO) throws Exception {
+
+
+        List<Producto> lista= service.SeachProducto(searchProductoDTO);
+        System.out.println( lista);
+        return new ResponseEntity<>(lista, HttpStatus.OK);
+    }
 }

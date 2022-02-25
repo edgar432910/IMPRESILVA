@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../_model/producto';
+import { ProductoSeach } from '../_model/productoSearch';
 import { GenericService } from './generic.service';
 
 @Injectable({
@@ -20,7 +21,11 @@ export class ProductoService extends GenericService<Producto> {
       `${environment.HOST}/Producto`);
   }
 
+  buscar(p:ProductoSeach) {
+    return this.http.post<Producto[]>(`${environment.HOST}/Producto/search`,p);
+  }
   
+
   getProductoCambio(){
     return this.productoCambio.asObservable();
   }

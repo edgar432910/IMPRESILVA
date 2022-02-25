@@ -45,10 +45,9 @@ public class ClaseServiceImpl extends CRUDImpl<Clase, Integer> implements IClase
 
         searchCriterias.add(cb.like(clases.get("nombre"),"%"+"clase"+"%"));
 
-        searchCriterias.add(cb.equal(clases.get("familia"),3));
+        searchCriterias.add(cb.like(clases.get("familia").get("nombre"),"%"+"Familia3"+"%"));
 
         consulta.select(clases).where(cb.and(searchCriterias.toArray(new Predicate[searchCriterias.size()])));
-
 
 
 

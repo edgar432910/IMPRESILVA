@@ -1,5 +1,6 @@
 package silva.Sistema_Consulta.Service.impl;
 
+import silva.Sistema_Consulta.Model.Producto;
 import silva.Sistema_Consulta.Repository.IGenericRepo;
 import silva.Sistema_Consulta.Service.ICRUD;
 
@@ -33,4 +34,5 @@ public abstract class CRUDImpl<T, ID> implements ICRUD<T,ID> {
     public void eliminar(ID id) throws Exception {
         getRepo().deleteById(id);
     }
+
 }

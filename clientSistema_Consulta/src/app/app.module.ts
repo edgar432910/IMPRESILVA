@@ -23,6 +23,7 @@ import { UnidadDialogoComponent } from './pages/unidad/unidad-dialogo/unidad-dia
 import { MarcavehiculoDialogoComponent } from './pages/marcavehiculo/marcavehiculo-dialogo/marcavehiculo-dialogo.component';
 import { ProveedorDialogoComponent } from './pages/proveedor/proveedor-dialogo/proveedor-dialogo.component';
 import { ProductoDialogoComponent } from './pages/producto/producto-dialogo/producto-dialogo.component';
+import { SearchComponent } from './pages/producto/search/search.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ProductoDialogoComponent } from './pages/producto/producto-dialogo/prod
     MarcavehiculoDialogoComponent,
     ProveedorDialogoComponent,
     ProductoDialogoComponent,
+    SearchComponent,
     
   ],
   imports: [

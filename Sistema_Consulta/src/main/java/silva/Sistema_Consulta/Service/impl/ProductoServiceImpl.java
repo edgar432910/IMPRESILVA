@@ -36,17 +36,7 @@ public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements 
 
     @Override
     public List<Producto> SeachProducto(SearchProductoDTO search) throws Exception {
-        // cr consulta
 
-//        private String codAlterno;
-//        private String codOriginal;
-//        private String descripcion;
-//
-//
-//        private String marca;
-//        private String clase;
-//
-//        private String marcavehiculo;
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Producto> consulta = cb.createQuery(Producto.class);
@@ -84,7 +74,6 @@ public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements 
         consulta.select(productos).where(cb.and(searchCriterias.toArray(new Predicate[searchCriterias.size()])));
 
 
-// tmr quiero hablar lo hago un dto? para recibir o sea si hay uno jaja mira ta feo
 
 
         return  em.createQuery(consulta).getResultList();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoSeach } from 'src/app/_model/productoSearch';
 import { ProductoService } from 'src/app/_service/producto.service';
 
 @Component({
@@ -8,14 +9,18 @@ import { ProductoService } from 'src/app/_service/producto.service';
 })
 export class SearchComponent implements OnInit {
 
+  
+  search:ProductoSeach = new ProductoSeach();
+
   constructor( private productoService:ProductoService) { }
 
   ngOnInit(): void {
+
   }
 
 
   buscar(){
-    // this.productoService.buscar()
+    console.log(this.search);
   }
 
 }

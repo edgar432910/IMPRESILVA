@@ -18,25 +18,22 @@ public class Familia {
 
     private String nombre;
 
-    private String orden;
-
-    private String estado;
 
 
+    private boolean estado;
 
 
-    //C mayusca es _
-//    private LocalDateTime fechaCreacion;
-//
-//
-//    private LocalDateTime fechaActualizacion;
-//
-//    @PrePersist
-//    private void asignarFechaCreacion(){
-//        fechaCreacion=LocalDateTime.now();
-//    }
-//    @PreUpdate
-//    private void  asignarFechaUpdate(){
-//        fechaActualizacion=LocalDateTime.now();
-//    }
+    private LocalDateTime fechaCreacion;
+
+
+    private LocalDateTime fechaActualizacion;
+
+    @PrePersist
+    private void asignarFechaCreacion(){
+        fechaCreacion=LocalDateTime.now();
+    }
+    @PreUpdate
+    private void  asignarFechaUpdate(){
+        fechaActualizacion=LocalDateTime.now();
+    }
 }

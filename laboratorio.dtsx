@@ -1,0 +1,653 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/3/2022 11:37:12 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MDR3Q4S"
+  DTS:CreatorName="DESKTOP-MDR3Q4S\SERVIDOR"
+  DTS:DTSID="{1059710F-8EB3-4660-8D9E-C4ACC8D68780}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{DC9BB1F1-C52A-4A0F-B979-F80FCD38A8F1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-MDR3Q4S.Migracion1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{CCA7C23B-98C2-4C44-B5C2-CC5E9DBFFA19}"
+      DTS:ObjectName="DESKTOP-MDR3Q4S.Migracion1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-MDR3Q4S;Initial Catalog=Migracion;Integrated Security=True;Application Name=SSIS-Package1-{CCA7C23B-98C2-4C44-B5C2-CC5E9DBFFA19}DESKTOP-MDR3Q4S.Migracion1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-MDR3Q4S.Prueba]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8EEA9663-B461-4981-8EDB-AB3BD60E19C2}"
+      DTS:ObjectName="DESKTOP-MDR3Q4S.Prueba">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-MDR3Q4S;Initial Catalog=Prueba;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Agregacion"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B86CBE68-FF8D-48AC-892B-AC39344FF23D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Agregacion"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Agregacion\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[clase]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Agregacion\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MDR3Q4S.Prueba]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MDR3Q4S.Prueba]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cla_Codigo]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Cla_Codigo"
+                      externalMetadataColumnId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[claseid]"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Codigo]" />
+                    <inputColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cla_Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Cla_Nombre"
+                      externalMetadataColumnId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Nombre]" />
+                    <inputColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cla_CodFamilia]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Cla_CodFamilia"
+                      externalMetadataColumnId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[familiaid]"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_CodFamilia]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_clase]"
+                      dataType="i4"
+                      name="id_clase" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[claseid]"
+                      dataType="wstr"
+                      length="20"
+                      name="claseid" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
+                      dataType="bool"
+                      name="estado" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_familia]"
+                      dataType="i4"
+                      name="id_familia" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[familiaid]"
+                      dataType="wstr"
+                      length="20"
+                      name="familiaid" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      name="fecha_creacion" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_actualizacion]"
+                      dataType="dbTimeStamp"
+                      name="fecha_actualizacion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Agregacion\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agregacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Agregacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Agregacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Agregacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Agregacion\Origen de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Clase"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Agregacion\Origen de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MDR3Q4S.Migracion1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MDR3Q4S.Migracion1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Codigo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Codigo]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Codigo]"
+                      name="Cla_Codigo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Nombre]"
+                      length="50"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Nombre]"
+                      name="Cla_Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_CodFamilia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_CodFamilia]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_CodFamilia]"
+                      name="Cla_CodFamilia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Orden]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Orden]"
+                      length="4"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Orden]"
+                      name="Cla_Orden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract1]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract1]"
+                      name="Cla_EtiqCaract1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract2]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract2]"
+                      name="Cla_EtiqCaract2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract3]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract3]"
+                      name="Cla_EtiqCaract3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract4]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract4]"
+                      name="Cla_EtiqCaract4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract5]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract5]"
+                      name="Cla_EtiqCaract5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract6]"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_EtiqCaract6]"
+                      name="Cla_EtiqCaract6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_PorcUtilidad]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_PorcUtilidad]"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_PorcUtilidad]"
+                      name="Cla_PorcUtilidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Estado]"
+                      length="1"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Estado]"
+                      name="Cla_Estado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Percepcion]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Percepcion]"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Cla_Percepcion]"
+                      name="Cla_Percepcion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Codigo]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="Cla_Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_CodFamilia]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_CodFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Orden]"
+                      dataType="wstr"
+                      length="4"
+                      name="Cla_Orden" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract1]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_EtiqCaract1" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract2]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_EtiqCaract2" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract3]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_EtiqCaract3" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract4]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_EtiqCaract4" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract5]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_EtiqCaract5" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_EtiqCaract6]"
+                      dataType="wstr"
+                      length="20"
+                      name="Cla_EtiqCaract6" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_PorcUtilidad]"
+                      dataType="cy"
+                      name="Cla_PorcUtilidad" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Estado]"
+                      dataType="wstr"
+                      length="1"
+                      name="Cla_Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Cla_Percepcion]"
+                      dataType="cy"
+                      name="Cla_Percepcion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Codigo]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Codigo]"
+                      name="Cla_Codigo" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Nombre]"
+                      name="Cla_Nombre" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_CodFamilia]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_CodFamilia]"
+                      name="Cla_CodFamilia" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Orden]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Orden]"
+                      name="Cla_Orden" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract1]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract1]"
+                      name="Cla_EtiqCaract1" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract2]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract2]"
+                      name="Cla_EtiqCaract2" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract3]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract3]"
+                      name="Cla_EtiqCaract3" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract4]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract4]"
+                      name="Cla_EtiqCaract4" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract5]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract5]"
+                      name="Cla_EtiqCaract5" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract6]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_EtiqCaract6]"
+                      name="Cla_EtiqCaract6" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_PorcUtilidad]"
+                      dataType="cy"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_PorcUtilidad]"
+                      name="Cla_PorcUtilidad" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Estado]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Estado]"
+                      name="Cla_Estado" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Percepcion]"
+                      dataType="cy"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Cla_Percepcion]"
+                      name="Cla_Percepcion" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Agregacion.Paths[Salida de origen de ADO NET]"
+              endId="Package\Agregacion\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Agregacion\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="133.333333333334,42.6666666666667"
+          Id="Package\Agregacion"
+          TopLeft="181.249997299165,84.1578963209057" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Agregacion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\Agregacion\Origen de ADO NET"
+          TopLeft="405.113630326973,204.641152177221" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Agregacion\OLE DB Destination"
+          TopLeft="411,326" />
+        <EdgeLayout
+          Id="Package\Agregacion.Paths[Salida de origen de ADO NET]"
+          TopLeft="495.723481830153,247.307818843888">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.6921811561124"
+              Start="0,0"
+              End="0,71.1921811561124">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.1921811561124" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Agregacion\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Agregacion\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

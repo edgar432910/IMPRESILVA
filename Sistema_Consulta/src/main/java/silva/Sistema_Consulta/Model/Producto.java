@@ -21,7 +21,8 @@ public class Producto {
 
     private String codOriginal;
     private String descripcion;
-    private String estado;
+    @Column(name = "estado", nullable = false)
+    private boolean enabled;
 
 //    @ManyToOne
 //    @JoinColumn(name = "id_tipoproducto",referencedColumnName = "idTipoproducto",  foreignKey = @ForeignKey(name = "FK_Producto_TipoProducto"))

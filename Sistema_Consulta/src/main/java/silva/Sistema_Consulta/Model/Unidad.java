@@ -14,7 +14,8 @@ public class Unidad {
 
     private Integer idUnidad;
     private String nombre;
-
+    @Column(name = "estado", nullable = false)
+    private boolean enabled;
 
 
 }

@@ -3,6 +3,8 @@ package silva.Sistema_Consulta.Controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -87,7 +89,13 @@ public class FamiliaController {
         service.eliminar(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    @GetMapping("/pageable")
+    public ResponseEntity<Page<FamiliaDTO>> listarPageable(Pageable page) throws Exception {
+       Page<FamiliaDTO> familias= service.listarPageable(page).map(p -> mapper.map(p, FamiliaDTO.class));
 
+
+        return new ResponseEntity<>(familias,HttpStatus.OK);
+    }
 
 //    @GetMapping("/{id}")
 //    Usuario GetOne(@PathVariable Integer id){

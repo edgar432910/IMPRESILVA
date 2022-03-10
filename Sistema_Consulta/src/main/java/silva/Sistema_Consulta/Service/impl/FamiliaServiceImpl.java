@@ -1,6 +1,8 @@
 package silva.Sistema_Consulta.Service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import silva.Sistema_Consulta.Model.Familia;
 import silva.Sistema_Consulta.Repository.FamiliaRepository;
@@ -17,5 +19,10 @@ public class FamiliaServiceImpl extends  CRUDImpl<Familia, Integer> implements I
     @Override
     protected IGenericRepo<Familia, Integer> getRepo() {
         return repo;
+    }
+
+    @Override
+    public Page<Familia> listarPageable(Pageable page) {
+        return repo.findAll(page);
     }
 }

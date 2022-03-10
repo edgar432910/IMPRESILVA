@@ -18,6 +18,7 @@ export class FamiliaComponent implements OnInit {
 
   dataSource:MatTableDataSource<Familia>
   displayedColumns: string[] = ['idFamilia', 'nombres', 'acciones'];
+  cantidad:number=0;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -34,9 +35,22 @@ export class FamiliaComponent implements OnInit {
       this.snackBar.open(data, 'AVISO', { duration: 2000 });
     });
 
-    this.famiiliaService.listar().subscribe(data => {
-     this.crearTabla(data)
-    });
+    this.famiiliaService.listarPageable(0,10).subscribe( data =>{
+      this.cantidad= data.totalElements;
+     this.crearTabla(data.content);
+
+    })
+
+    // this.famiiliaService.listar().subscribe(data => {
+    //  this.crearTabla(data)
+    // });
+  }
+
+  mostrarMas(e:any){
+    this.famiiliaService.listarPageable(e.pageIndex,e.pageSize).subscribe( data =>{
+      this.cantidad= data.totalElements;
+      this.dataSource = new MatTableDataSource(data.content);
+    })
   }
 
   filtrar(e: any) {

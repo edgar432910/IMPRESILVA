@@ -14,8 +14,7 @@ public class FamiliaDTO {
     @NotBlank
     private String nombre;
 
-    @NotBlank
-    private String orden;
+
 
     @NotBlank
     private String estado;

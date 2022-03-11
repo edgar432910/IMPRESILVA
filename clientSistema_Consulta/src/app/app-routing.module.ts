@@ -27,7 +27,7 @@ const routes: Routes = [
 
     // ]
   },{
-    path: 'pages/marcaVehiculo', component: MarcavehiculoComponent, 
+    path: 'pages/marcavehiculo', component: MarcavehiculoComponent, 
     // children:[
     //   // {path:'nuevo', component:FamiliaEdicionComponent },
     //   // {path:'edicion/:id', component:FamiliaEdicionComponent }

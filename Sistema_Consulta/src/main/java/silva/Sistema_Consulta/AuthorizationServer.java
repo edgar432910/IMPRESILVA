@@ -52,7 +52,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter{
 	
 	@Override
 	public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
-		configurer.inMemory().withClient(clientId).secret(bcrypt.encode(clientSecret)).authorizedGrantTypes(grantType) //"refresh_token" 
+		configurer.inMemory().withClient(clientId).secret(bcrypt.encode(clientSecret)).authorizedGrantTypes(grantType, "refresh_token") //"refresh_token"
 		.scopes(scopeRead, scopeWrite).resourceIds(resourceIds).accessTokenValiditySeconds(20000)
 		.refreshTokenValiditySeconds(0);
 	}
@@ -61,8 +61,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter{
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
 		enhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));
-		endpoints.tokenStore(tokenStore).accessTokenConverter(accessTokenConverter).tokenEnhancer(enhancerChain).authenticationManager(authenticationManager);
-		//.pathMapping("/oauth/token", "/login");
+		endpoints.tokenStore(tokenStore).accessTokenConverter(accessTokenConverter).tokenEnhancer(enhancerChain).authenticationManager(authenticationManager)
+				.pathMapping("/oauth/token", "/login");
 	}
 
 }

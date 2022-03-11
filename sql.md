@@ -267,3 +267,58 @@ select * from Producto
 
 select * from Clase
 select * from Moneda
+
+
+-- SCRIPT ROLES
+
+INSERT INTO usuario( nombre, clave, estado) values ( 'mitotest21@gmail.com', '$2a$10$ju20i95JTDkRa7Sua63JWOChSBc0MNFtG/6Sps2ahFFqN.HCCUMW.', '1');
+INSERT INTO usuario( nombre, clave, estado) values ('mitocode21@gmail.com', '$2a$10$ju20i95JTDkRa7Sua63JWOChSBc0MNFtG/6Sps2ahFFqN.HCCUMW.', '1');
+
+INSERT INTO Rol ( nombre, descripcion) VALUES ( 'ADMIN', 'Administrador');
+INSERT INTO Rol (nombre, descripcion) VALUES ('USER', 'Usuario');
+INSERT INTO Rol (nombre, descripcion) VALUES ('DBA', 'Admin de bd');
+
+INSERT INTO usuario_rol (id_usuario, id_rol) VALUES (1, 1);
+INSERT INTO usuario_rol (id_usuario, id_rol) VALUES (1, 3);
+INSERT INTO usuario_rol (id_usuario, id_rol) VALUES (2, 2);
+
+select * from usuario_rol
+select * from menu
+
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Inicio', 'home', '/pages/inicio');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Buscar', 'search', '/pages/buscar');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Registrar F', 'insert_drive_file', '/pages/familia');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Registrar C.', 'insert_drive_file', '/pages/clase');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Registrar M.', 'view_carousel', '/pages/marca');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Registrar MarcaVehiculo', 'star_rate', '/pages/marcavehiculo');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Unidad', 'healing', '/pages/unidad');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Proveedor', 'assignment', '/pages/proveedor');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Producto', 'accessibility', '/pages/producto');
+INSERT INTO menu( nombre, icono, url) VALUES ( 'Almacen', 'assessment', '/pages/almacen');
+
+
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (1, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (2, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (3, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (4, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (5, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (6, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (7, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (8, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (9, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (10, 1);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (1, 2);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (3, 2);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (4, 2);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (5, 2);
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (6, 2);
+select * from menu_rol
+select * from usuario_rol
+
+select m.* 
+from menu_rol mr 
+inner join usuario_rol ur on ur.id_rol = mr.id_rol 
+inner join menu m on m.id_menu = mr.id_menu 
+inner join usuario u on u.id_usuario = ur.id_usuario 
+where u.nombre = 'mitotest21@gmail.com'
+

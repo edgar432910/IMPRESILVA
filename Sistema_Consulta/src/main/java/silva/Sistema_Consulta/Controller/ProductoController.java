@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import silva.Sistema_Consulta.Model.Clase;
@@ -45,6 +46,7 @@ public class ProductoController {
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
     @GetMapping("/{id}")
+    @PreAuthorize("@authServiceImpl.tieneAcceso('listar')")
     public ResponseEntity<ProductoDTO> listarPorId(@PathVariable("id") Integer id) throws Exception {
         Producto obj = service.listarPorId(id);
 
@@ -57,6 +59,7 @@ public class ProductoController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
     @PostMapping
+    @PreAuthorize("@authServiceImpl.tieneAcceso('listar')")
     public ResponseEntity<Void> registrar(@Valid @RequestBody ProductoDTO dto) throws Exception {
         Producto p = mapper.map(dto, Producto.class);
         Producto obj = service.registrar(p);

@@ -1,0 +1,91 @@
+<div class="example-container">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+            <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+        </button>
+
+        <h1 class="example-app-name">Importaciones Silva</h1>
+
+        <span class="example-spacer"></span>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/perfil">
+                <mat-icon>account_box</mat-icon>
+                <span>Mi Perfil</span>
+            </button>
+            <button mat-menu-item (click)="sidenav.opened = false">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Cerrar Sesión</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container">
+        <mat-sidenav #sidenav style="width: 200px" mode="over">
+            <img src="assets/silva.png" width="128" style="margin-left: 20px">
+
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/buscar" style="cursor: pointer">
+                <mat-icon>search</mat-icon>
+                <span>Buscar</span>
+            </button>
+            <!-- <mat-divider></mat-divider>
+          <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/consulta" style="cursor: pointer">
+              <mat-icon>insert_drive_file</mat-icon>
+              <span>Registrar</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/consulta-especial"
+              style="cursor: pointer">
+              <mat-icon>insert_drive_file</mat-icon>
+              <span>Registrar E.</span>
+          </button>
+          <mat-divider></mat-divider> -->
+
+
+
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/clase" style="cursor: pointer">
+                <mat-icon>assignment</mat-icon>
+                <span>Clase</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/familia" style="cursor: pointer">
+                <mat-icon>accessibility</mat-icon>
+                <span>Familia</span>
+            </button>
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/marca" style="cursor: pointer">
+                <mat-icon>accessibility</mat-icon>
+                <span>Marca</span>
+            </button>
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/marcaVehiculo" style="cursor: pointer">
+                <mat-icon>accessibility</mat-icon>
+                <span>MarcaVehiculo</span>
+            </button>
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/unidad" style="cursor: pointer">
+                <mat-icon>accessibility</mat-icon>
+                <span>Unidad</span>
+            </button>
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/proveedor" style="cursor: pointer">
+                <mat-icon>accessibility</mat-icon>
+                <span>Proveedor</span>
+            </button>
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/producto" style="cursor: pointer">
+                <mat-icon>accessibility</mat-icon>
+                <span>Producto</span>
+            </button>
+
+            <mat-divider></mat-divider>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
+
+</div>

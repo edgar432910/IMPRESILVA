@@ -1,67 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClaseEdicionComponent } from './pages/clase/clase-edicion/clase-edicion.component';
-import { ClaseComponent } from './pages/clase/clase.component';
-// import { FamiliaEdicionComponent } from './pages/familia/familia-edicion/familia-edicion.component';
-import { FamiliaComponent } from './pages/familia/familia.component';
-import { MarcaComponent } from './pages/marca/marca.component';
-import { MarcavehiculoComponent } from './pages/marcavehiculo/marcavehiculo.component';
-import { ProductoComponent } from './pages/producto/producto.component';
-import { ProveedorComponent } from './pages/proveedor/proveedor.component';
-import { UnidadComponent } from './pages/unidad/unidad.component';
+
+import { LoginComponent } from './pages/login/login.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 
 
 const routes: Routes = [
+  
   {
-    path: 'pages/familia', component: FamiliaComponent, 
-    // children:[
-    //   // {path:'nuevo', component:FamiliaEdicionComponent },
-    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
+    path: 'login', component: LoginComponent, 
 
-    // ]
-  },{
-    path: 'pages/marca', component: MarcaComponent, 
-    // children:[
-    //   // {path:'nuevo', component:FamiliaEdicionComponent },
-    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
+  },
 
-    // ]
-  },{
-    path: 'pages/marcavehiculo', component: MarcavehiculoComponent, 
-    // children:[
-    //   // {path:'nuevo', component:FamiliaEdicionComponent },
-    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
+  {
+    path: '',redirectTo:'login', pathMatch:'full' 
 
-    // ]
-  },{
-    path: 'pages/unidad', component: UnidadComponent, 
-    // children:[
-    //   // {path:'nuevo', component:FamiliaEdicionComponent },
-    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
-
-    // ]
   },
   {
-    path: 'pages/proveedor', component: ProveedorComponent, 
-    // children:[
-    //   // {path:'nuevo', component:FamiliaEdicionComponent },
-    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
-
-    // ]
-  },
-  {
-    path: 'pages/producto', component: ProductoComponent, 
-    // children:[
-    //   // {path:'nuevo', component:FamiliaEdicionComponent },
-    //   // {path:'edicion/:id', component:FamiliaEdicionComponent }
-
-    // ]
-  },
-  { path: 'pages/clase', component: ClaseComponent,children:[
-    {path:'nuevo', component:ClaseEdicionComponent },
-    {path:'edicion/:id', component:ClaseEdicionComponent }
-
-  ] }
+    path:'pages',
+    component:LayoutComponent,
+    loadChildren:()=> import('./pages/pages.module').then(m=> m.PagesModule)
+  }
+ 
 ];
 
 @NgModule({

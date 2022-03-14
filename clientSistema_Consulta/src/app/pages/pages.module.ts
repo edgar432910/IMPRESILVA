@@ -26,6 +26,8 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MaterialModule } from '../material/material/material.module';
 import { LayoutComponent } from './layout/layout.component';
 import { CommonModule } from '@angular/common';
+import { Not403Component } from './not403/not403.component';
+import { Not404Component } from './not404/not404.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { CommonModule } from '@angular/common';
     ProductoDialogoComponent,
     SearchComponent,
     InicioComponent,
-    LayoutComponent
+    LayoutComponent,
+    Not403Component,
+    Not404Component
     
     
   ],

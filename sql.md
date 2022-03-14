@@ -322,3 +322,13 @@ inner join menu m on m.id_menu = mr.id_menu
 inner join usuario u on u.id_usuario = ur.id_usuario 
 where u.nombre = 'mitotest21@gmail.com'
 
+
+create table oauth_access_token (
+  token_id VARCHAR(256),
+  token binary,
+  authentication_id VARCHAR(256),
+  user_name VARCHAR(256),
+  client_id VARCHAR(256),
+  authentication binary,
+  refresh_token VARCHAR(256)
+);

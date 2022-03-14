@@ -23,16 +23,18 @@ export class LoginService {
     });
   }
 
-  // estaLogueado() {
-  //   let token = sessionStorage.getItem(environment.TOKEN_NAME);
-  //   return token != null;
-  // }
+  estaLogueado() {
+    let token = localStorage.getItem(environment.TOKEN_NAME);
+    
+    return token != null;
+  }
 
-  // cerrarSesion(){
-  //   let token = sessionStorage.getItem(environment.TOKEN_NAME);
-  //   this.http.get(`${environment.HOST}/tokens/anular/${token}`).subscribe(() => {
-  //     sessionStorage.clear();
-  //     this.router.navigate(['login']);
-  //   });    
-  // }
+  cerrarSesion(){
+  
+    let token = localStorage.getItem(environment.TOKEN_NAME);
+    this.http.get(`${environment.HOST2}/tokens/anular/${token}`).subscribe(() => {
+      localStorage.clear();
+      this.router.navigate(['login']);
+    });    
+  }
 }

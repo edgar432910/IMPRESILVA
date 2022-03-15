@@ -43,16 +43,16 @@ public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements 
         Root<Producto> productos = consulta.from(Producto.class);
 
         List<Predicate> searchCriterias = new ArrayList<>();
-        if((search.getCodAlterno()!="")&&(search.getCodAlterno()!=null)){
-            searchCriterias.add(cb.like(productos.get("codAlterno"),"%"+search.getCodAlterno()+"%"));
+        if((search.getCodigo1()!="")&&(search.getCodigo1()!=null)){
+            searchCriterias.add(cb.like(productos.get("codigo1"),"%"+search.getCodigo1()+"%"));
 
         }
 
-        if((search.getCodOriginal()!="") && (search.getCodOriginal()!= null)){
-            searchCriterias.add(cb.like(productos.get("codOriginal"),"%"+search.getCodOriginal()+"%"));
+        if((search.getCodigo2()!="") && (search.getCodigo2()!= null)){
+            searchCriterias.add(cb.like(productos.get("codigo2"),"%"+search.getCodigo2()+"%"));
         }
-        if((search.getDescripcion()!="")&&(search.getDescripcion()!=null)){
-            searchCriterias.add(cb.like(productos.get("descripcion"),"%"+search.getDescripcion()+"%"));
+        if((search.getNombre1()!="")&&(search.getNombre1()!=null)){
+            searchCriterias.add(cb.like(productos.get("nombre1"),"%"+search.getNombre1()+"%"));
 
         }
         if((search.getMarca()!="")&&(search.getMarca()!=null)){

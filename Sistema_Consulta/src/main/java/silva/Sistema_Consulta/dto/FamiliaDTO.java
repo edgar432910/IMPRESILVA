@@ -16,6 +16,4 @@ public class FamiliaDTO {
 
 
 
-    @NotBlank
-    private String estado;
 }

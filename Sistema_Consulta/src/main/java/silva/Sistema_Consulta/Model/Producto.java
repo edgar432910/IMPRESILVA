@@ -17,22 +17,25 @@ public class Producto {
     private Integer idProducto;
 
 
-    private String codAlterno;
+    private String codigo1;
+    private String codigo2;
+    private String codigo3;
+    private String codigo4;
+    private String nombre1;
+    private String nombre2;
+    private String factura1;
+    private String factura2;
+    private String factura3;
+    private float costo;
+    private String pais;
 
-    private String codOriginal;
-    private String descripcion;
-    @Column(name = "estado", nullable = false)
-    private boolean enabled;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_tipoproducto",referencedColumnName = "idTipoproducto",  foreignKey = @ForeignKey(name = "FK_Producto_TipoProducto"))
-//
-//    private TipoProducto tipoProducto;
+    private boolean estado;
 
 
     @ManyToOne
-    @JoinColumn(name = "id_unidad",referencedColumnName = "idUnidad",  foreignKey = @ForeignKey(name = "FK_Producto_Unidad"))
-    private Unidad unidad;
+    @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor", foreignKey = @ForeignKey(name = "FK_Producto_Proveedores"))
+    private Proveedor Proveedor;
 
     @ManyToOne
     @JoinColumn(name = "id_clase",referencedColumnName = "idClase",  foreignKey = @ForeignKey(name = "FK_Producto_Clase"))
@@ -42,22 +45,25 @@ public class Producto {
     @JoinColumn(name = "id_marca",referencedColumnName = "idMarca", foreignKey = @ForeignKey(name = "FK_Producto_Marca"))
     private Marca marca;
 
-    private String moneda;
-    private String Pais;
-
     @ManyToOne
-    @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor", foreignKey = @ForeignKey(name = "FK_Producto_Proveedores"))
-    private Proveedor Proveedor;
+    @JoinColumn(name = "id_unidad",referencedColumnName = "idUnidad",  foreignKey = @ForeignKey(name = "FK_Producto_Unidad"))
+    private Unidad unidad;
 
     @ManyToOne
     @JoinColumn(name = "id_marca_vehiculo", referencedColumnName = "idMarcaVehiculo", foreignKey = @ForeignKey(name = "FK_Producto_MarcaVehiculo"))
     private MarcaVehiculo marcavehiculo;
 
-    private String Costo;
+    @ManyToOne
+    @JoinColumn(name = "id_moneda", referencedColumnName = "idMoneda", foreignKey = @ForeignKey(name = "FK_Producto_Moneda"))
+    private Moneda moneda;
 
-    private String facturanumero;
-    private String fechaIngreso;
-    private String tercero;
+    private String monedaid;
+
+
+
+
+
+
 
 
 
@@ -66,7 +72,6 @@ public class Producto {
 
     private LocalDateTime fechaActualizacion;
 
-    private String ganancia;
 
     @PrePersist
     private void asignarFechaCreacion(){

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   iniciarSesion(){
     this.loginService.login(this.usuario, this.clave).subscribe(data => {
     
-      console.log(data);
+   
       localStorage.setItem(environment.TOKEN_NAME, data.access_token);    
       this.router.navigate(['/pages/inicio']);
     });

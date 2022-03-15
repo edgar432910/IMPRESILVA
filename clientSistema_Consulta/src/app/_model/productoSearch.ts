@@ -1,9 +1,9 @@
 export class ProductoSeach{
 
 
-    codAlterno?:string;
-    codOriginal?:string;
-    descripcion?:string;
+    codigo1?:string;
+    codigo2?:string;
+    nombre1?:string;
     proveedor ?: string;
     clase ?: string;
     marcavehiculo ?: string;

@@ -7,9 +7,9 @@ import lombok.Data;
 public class SearchProductoDTO {
 
 
-    private String codAlterno;
-    private String codOriginal;
-    private String descripcion;
+    private String codigo1;
+    private String codigo2;
+    private String nombre1;
 
 
     private String clase;

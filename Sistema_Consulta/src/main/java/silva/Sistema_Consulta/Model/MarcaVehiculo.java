@@ -3,6 +3,7 @@ package silva.Sistema_Consulta.Model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -16,6 +17,22 @@ public class MarcaVehiculo {
 
     private String nombre;
 
-    private String estado;
+
+    private boolean estado;
+
+
+    private LocalDateTime fechaCreacion;
+
+
+    private LocalDateTime fechaActualizacion;
+
+    @PrePersist
+    private void asignarFechaCreacion(){
+        fechaCreacion=LocalDateTime.now();
+    }
+    @PreUpdate
+    private void  asignarFechaUpdate(){
+        fechaActualizacion=LocalDateTime.now();
+    }
 
 }

@@ -3,6 +3,7 @@ package silva.Sistema_Consulta.Model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -14,8 +15,23 @@ public class Unidad {
 
     private Integer idUnidad;
     private String nombre;
-    @Column(name = "estado", nullable = false)
-    private boolean enabled;
+
+    private boolean estado;
+
+
+    private LocalDateTime fechaCreacion;
+
+
+    private LocalDateTime fechaActualizacion;
+
+    @PrePersist
+    private void asignarFechaCreacion(){
+        fechaCreacion=LocalDateTime.now();
+    }
+    @PreUpdate
+    private void  asignarFechaUpdate(){
+        fechaActualizacion=LocalDateTime.now();
+    }
 
 
 }

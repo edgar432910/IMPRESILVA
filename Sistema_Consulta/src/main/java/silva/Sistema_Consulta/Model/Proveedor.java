@@ -18,19 +18,14 @@ public class Proveedor {
 
     private String razonsocial;
 
-
-    private String contribuyente;
     private String nombrecomercial;
-    private LocalDateTime fechaInscripcion;
-    private LocalDateTime fechaActualizacion;
-
     private String departamento;
-
     private String provincia ;
     private String distrito;
     private String direccion;
     private String telefono;
-
+    private LocalDateTime fechaInscripcion;
+    private LocalDateTime fechaActualizacion;
 
     @PreUpdate
     private void  asignarFechaUpdate(){

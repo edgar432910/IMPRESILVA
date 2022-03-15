@@ -23,25 +23,25 @@ public class Clase{
     private Familia familia;
 
 
+    private float utilidad;
 
 
-    private String orden;
+    @Column(name = "estado", nullable = false)
+    private boolean enabled;
 
-    private String estado;
 
 
-    //C mayusca es _
-//    private LocalDateTime fechaCreacion;
-//
-//
-//    private LocalDateTime fechaActualizacion;
-//
-//    @PrePersist
-//    private void asignarFechaCreacion(){
-//        fechaCreacion=LocalDateTime.now();
-//    }
-//    @PreUpdate
-//    private void  asignarFechaUpdate(){
-//        fechaActualizacion=LocalDateTime.now();
-//    }
+    private LocalDateTime fechaCreacion;
+
+
+    private LocalDateTime fechaActualizacion;
+
+    @PrePersist
+    private void asignarFechaCreacion(){
+        fechaCreacion=LocalDateTime.now();
+    }
+    @PreUpdate
+    private void  asignarFechaUpdate(){
+        fechaActualizacion=LocalDateTime.now();
+    }
 }

@@ -106,13 +106,6 @@ factura2 nvarchar(20)  null,
 factura3 nvarchar(20)  null,
 costo money null,
 pais nvarchar(3)  null,
-cod_alterno nvarchar(255)  null,
-cod_original nvarchar(255)   null,
-descripcion varchar(255)  null,
-facturanumero nvarchar(200),
-ganancia nvarchar(255),
-moneda  nvarchar(255),
-fecha_ingreso datetime2(7) null,
 
 estado bit not null default 1,
 fecha_creacion smalldatetime null,
@@ -332,3 +325,22 @@ create table oauth_access_token (
   authentication binary,
   refresh_token VARCHAR(256)
 );
+VARBINARY(MAX).
+
+
+ALTER TABLE familia DROP COLUMN familiaid 
+ALTER TABLE marca DROP COLUMN marcaid
+ALTER TABLE unidad DROP COLUMN unidadid
+ALTER TABLE marca_vehiculo DROP COLUMN marcavehiculoid
+ALTER TABLE proveedor DROP COLUMN proveedorid
+ALTER TABLE moneda DROP COLUMN monedaid
+ALTER TABLE clase DROP COLUMN claseid, familiaid
+ALTER TABLE  DROP COLUMN
+
+ALTER TABLE producto DROP COLUMN 
+productoid,
+proveedorid, 
+claseid , 
+marcaid, 
+unidadid , 
+marcavehiculoid 

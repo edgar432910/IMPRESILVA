@@ -12,11 +12,7 @@ public class MarcaDTO {
     @NotBlank
     private String nombre;
 
-    @NotNull
-    @NotBlank
-    private String orden;
-    @NotNull
-    @NotBlank
-    private String estado;
+
+
 
 }

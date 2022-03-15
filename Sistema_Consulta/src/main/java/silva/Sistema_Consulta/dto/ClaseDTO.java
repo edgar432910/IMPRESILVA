@@ -17,10 +17,8 @@ public class ClaseDTO {
     private FamiliaDTO familia;
 
     @NotBlank
-    private String orden;
+    private float utilidad;
 
-    @NotBlank
-    private String estado;
 
 
 }

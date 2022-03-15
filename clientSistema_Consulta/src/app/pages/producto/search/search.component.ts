@@ -20,7 +20,9 @@ export class SearchComponent implements OnInit {
 
 
   buscar(){
-    console.log(this.search);
+    this.productoService.buscar(this.search).subscribe( data =>{
+      console.log(data);
+    })
   }
 
 }

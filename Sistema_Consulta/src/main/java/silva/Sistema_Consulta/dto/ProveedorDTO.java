@@ -13,8 +13,7 @@ public class ProveedorDTO {
     private String ruc;
     @NotNull
     private String razonsocial;
-    @NotNull
-    private String contribuyente;
+
     @NotNull
     private String nombrecomercial;
 

@@ -16,6 +16,7 @@ export class LoginService {
   ) { }
 
   login(usuario: string, contrasena: string){
+    localStorage.clear();
     const body = `grant_type=password&username=${encodeURIComponent(usuario)}&password=${encodeURIComponent(contrasena)}`;
 
     return this.http.post<any>(this.url, body, {
@@ -31,6 +32,9 @@ export class LoginService {
 
   cerrarSesion(){
   
+    // localStorage.clear();
+    //   this.router.navigate(['login']);
+
     let token = localStorage.getItem(environment.TOKEN_NAME);
     this.http.get(`${environment.HOST2}/tokens/anular/${token}`).subscribe(() => {
       localStorage.clear();

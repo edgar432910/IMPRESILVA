@@ -9,40 +9,48 @@ import javax.validation.constraints.NotNull;
 public class ProductoDTO {
 
     private Integer idProducto;
-    @NotNull
-    private String codAlterno;
 
     @NotNull
-    private String codOriginal;
-    @NotNull
-    private String descripcion;
-    @NotNull
-    private Unidad unidad;
 
+    private String codigo1;
+    @NotNull
+
+    private String codigo2;
+    private String codigo3;
+    private String codigo4;
+    @NotNull
+    private String nombre1;
+    private String nombre2;
+    @NotNull
+    private String factura1;
+    @NotNull
+    private String factura2;
+    private String factura3;
+    @NotNull
+    private float costo;
+
+    private String pais;
+
+    @NotNull
+    private String monedaid;
+
+    @NotNull
+    private ProveedorDTO proveedor;
     @NotNull
     private ClaseDTO clase;
     @NotNull
     private MarcaDTO marca;
     @NotNull
-    private ProveedorDTO proveedor;
+    private UnidadDTO unidad;
     @NotNull
     private MarcaVehiculoDTO marcavehiculo;
 
     @NotNull
-    private String moneda;
-    @NotNull
-    private String pais;
+    private MonedaDTO moneda;
 
-    @NotNull
-    private String costo;
-    @NotNull
-    private String facturanumero;
-    @NotNull
-    private String fechaIngreso;
-    @NotNull
-    private String tercero;
-    @NotNull
-    private String ganancia;
+
+
+
 
 
 

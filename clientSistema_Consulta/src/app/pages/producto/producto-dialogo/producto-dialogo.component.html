@@ -28,64 +28,57 @@
     <mat-form-field class="example-full-width">
         <mat-label >Codigo Alterno</mat-label>
 
-        <input matInput placeholder="Orden" required formControlName="codAlterno">
-        <mat-error  *ngIf="form.controls['codAlterno'].hasError('required')">
+        <input matInput placeholder="Orden" required formControlName="codigo1">
+        <mat-error  *ngIf="form.controls['codigo1'].hasError('required')">
             Este campo es obligatoriooo
         </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label >Codigo Original</mat-label>
 
-        <input matInput placeholder="Codigo Original" required formControlName="codOriginal">
-        <mat-error  *ngIf="form.controls['codOriginal'].hasError('required')">
+        <input matInput placeholder="Codigo Original" required formControlName="codigo2">
+        <mat-error  *ngIf="form.controls['codigo2'].hasError('required')">
             Este campo es obligatoriooo
         </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label >Descripcion</mat-label>
 
-        <input matInput placeholder="Descripcion" required formControlName="descripcion">
-        <mat-error  *ngIf="form.controls['descripcion'].hasError('required')">
+        <input matInput placeholder="Descripcion" required formControlName="nombre">
+        <mat-error  *ngIf="form.controls['nombre'].hasError('required')">
             Este campo es obligatoriooo
         </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label >Numero de Factura</mat-label>
 
-        <input matInput placeholder="Numero de Factura" required formControlName="facturanumero">
-        <mat-error  *ngIf="form.controls['facturanumero'].hasError('required')">
+        <input matInput placeholder="Numero de Factura" required formControlName="factura1">
+        <mat-error  *ngIf="form.controls['factura1'].hasError('required')">
             Este campo es obligatoriooo
         </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label >Fecha de Factura</mat-label>
 
-        <input matInput placeholder="Fecha de Factura" required formControlName="fechaIngreso">
-        <mat-error  *ngIf="form.controls['fechaIngreso'].hasError('required')">
+        <input matInput placeholder="Fecha de Factura" required formControlName="factura2">
+        <mat-error  *ngIf="form.controls['factura2'].hasError('required')">
             Este campo es obligatoriooo
         </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label >Adicional Factura</mat-label>
 
-        <input matInput placeholder="Adicional Factura" required formControlName="tercero">
-        <mat-error  *ngIf="form.controls['tercero'].hasError('required')">
+        <input matInput placeholder="Adicional Factura" required formControlName="factura3">
+        <mat-error  *ngIf="form.controls['factura3'].hasError('required')">
             Este campo es obligatoriooo
         </mat-error>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label >Ganancia</mat-label>
-
-        <input matInput placeholder="Ganancia" required formControlName="ganancia">
-        <mat-error  *ngIf="form.controls['ganancia'].hasError('required')">
-            Este campo es obligatoriooo
-        </mat-error>
-    </mat-form-field>
+    
     <mat-form-field class="example-full-width">
         <mat-label >Moneda</mat-label>
 
-        <input matInput placeholder="Moneda" required formControlName="moneda">
-        <mat-error  *ngIf="form.controls['moneda'].hasError('required')">
+        <input matInput placeholder="Moneda" required formControlName="monedaid">
+        <mat-error  *ngIf="form.controls['monedaid'].hasError('required')">
             Este campo es obligatoriooo
         </mat-error>
     </mat-form-field>

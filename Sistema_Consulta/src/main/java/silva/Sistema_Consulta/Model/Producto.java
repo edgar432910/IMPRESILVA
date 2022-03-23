@@ -26,7 +26,7 @@ public class Producto {
     private String factura1;
     private String factura2;
     private String factura3;
-    private float costo;
+    private Integer costo;
     private String pais;
 
 
@@ -34,27 +34,27 @@ public class Producto {
 
 
     @ManyToOne
-    @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor", foreignKey = @ForeignKey(name = "FK_Producto_Proveedores"))
+    @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor", foreignKey = @ForeignKey(name = "fk_proveedor"))
     private Proveedor Proveedor;
 
     @ManyToOne
-    @JoinColumn(name = "id_clase",referencedColumnName = "idClase",  foreignKey = @ForeignKey(name = "FK_Producto_Clase"))
+    @JoinColumn(name = "id_clase",referencedColumnName = "idClase",  foreignKey = @ForeignKey(name = "fk_clase"))
     private Clase clase;
 
     @ManyToOne
-    @JoinColumn(name = "id_marca",referencedColumnName = "idMarca", foreignKey = @ForeignKey(name = "FK_Producto_Marca"))
+    @JoinColumn(name = "id_marca",referencedColumnName = "idMarca", foreignKey = @ForeignKey(name = "fk_marca"))
     private Marca marca;
 
     @ManyToOne
-    @JoinColumn(name = "id_unidad",referencedColumnName = "idUnidad",  foreignKey = @ForeignKey(name = "FK_Producto_Unidad"))
+    @JoinColumn(name = "id_unidad",referencedColumnName = "idUnidad",  foreignKey = @ForeignKey(name = "fk_unidad"))
     private Unidad unidad;
 
     @ManyToOne
-    @JoinColumn(name = "id_marca_vehiculo", referencedColumnName = "idMarcaVehiculo", foreignKey = @ForeignKey(name = "FK_Producto_MarcaVehiculo"))
+    @JoinColumn(name = "id_marca_vehiculo", referencedColumnName = "idMarcaVehiculo", foreignKey = @ForeignKey(name = "fk_marcavehiculo"))
     private MarcaVehiculo marcavehiculo;
 
     @ManyToOne
-    @JoinColumn(name = "id_moneda", referencedColumnName = "idMoneda", foreignKey = @ForeignKey(name = "FK_Producto_Moneda"))
+    @JoinColumn(name = "id_moneda", referencedColumnName = "idMoneda", foreignKey = @ForeignKey(name = "fk_moneda"))
     private Moneda moneda;
 
     private String monedaid;

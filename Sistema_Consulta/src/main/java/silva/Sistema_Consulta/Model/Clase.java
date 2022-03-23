@@ -19,7 +19,7 @@ public class Clase{
     private String nombre;
 
     @ManyToOne
-    @JoinColumn(name = "id_familia",referencedColumnName = "idFamilia")
+    @JoinColumn(name = "id_familia",referencedColumnName = "idFamilia", foreignKey = @ForeignKey(name = "fk_familia"))
     private Familia familia;
 
 

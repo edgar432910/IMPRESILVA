@@ -43,25 +43,17 @@ export class ClaseDialogoComponent implements OnInit {
         this.form= new FormGroup({
           'id': new FormControl(this.clase.idClase),
           'nombre': new FormControl(this.clase.nombre,[Validators.required]),
-          'estado': new FormControl(this.clase.estado,[Validators.required]),
-          'orden': new FormControl(this.clase.orden ,[Validators.required]),
+          
           'familia': this.myControlFamilia
         });
         
-        // this.fb.group({
-        //   id:[this.clase.idClase],
-        //   nombre:[this.clase.nombre ,  [Validators.required]],
-        //   estado:[this.clase.estado , [Validators.required]],
-        //   orden:[ this.clase.orden , [Validators.required]],
-        //   familia:[this.clase.familia.idFamilia , [Validators.required]]
-        // });
+       
       }
       else{
         this.form= new FormGroup({
           'id': new FormControl(0),
           'nombre': new FormControl('',[Validators.required]),
           'estado': new FormControl('',[Validators.required]),
-          'orden': new FormControl('',[Validators.required]),
           'familia': this.myControlFamilia
         });
         
@@ -94,8 +86,6 @@ export class ClaseDialogoComponent implements OnInit {
 
       clasefinal.idClase = this.form.value['id'];    
       clasefinal.nombre = this.form.value['nombre'];
-      clasefinal.estado = this.form.value['estado'];
-      clasefinal.orden = this.form.value['orden'];
       let familiaupdate= new Familia();
       familiaupdate.idFamilia=this.form.value['familia'].idFamilia;
       clasefinal.familia=familiaupdate;

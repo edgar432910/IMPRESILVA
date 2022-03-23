@@ -7,17 +7,20 @@ import { Unidad } from "./unidad";
 
 export class Producto{
     idProducto:number;
-    costo:string;
+    codigo1:string;
+    codigo2:string;
+    codigo3:string;
+    codigo4:string;
+    nombre:string;
+    nombre2:string;
+    factura1:string;
+    factura2:string;
+    factura3:string;
+    costo:number;
     pais:string;
-    codAlterno:string;
-    codOriginal:string;
-    descripcion:string;
-    estado:string;
-    facturanumero:string;
-    fechaIngreso:string;
-    ganancia:string;
-    moneda:string;
-    tercero:string;
+    monedaid:string;
+   
+   
 
     proveedor:Proveedor;
     clase:Clase;

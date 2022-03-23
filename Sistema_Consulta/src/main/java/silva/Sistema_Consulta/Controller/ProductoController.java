@@ -3,6 +3,8 @@ package silva.Sistema_Consulta.Controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import silva.Sistema_Consulta.Model.Clase;
 import silva.Sistema_Consulta.Model.Producto;
 import silva.Sistema_Consulta.Service.IProductoService;
+import silva.Sistema_Consulta.dto.FamiliaDTO;
 import silva.Sistema_Consulta.dto.ProductoDTO;
 import silva.Sistema_Consulta.dto.SearchProductoDTO;
 import silva.Sistema_Consulta.exception.ModeloNotFoundException;
@@ -99,5 +102,12 @@ public class ProductoController {
         List<Producto> lista= service.SeachProducto(searchProductoDTO);
         System.out.println( lista);
         return new ResponseEntity<>(lista, HttpStatus.OK);
+    }
+    @GetMapping("/pageable")
+    public ResponseEntity<Page<ProductoDTO>> listarPageable(Pageable page) throws Exception {
+        Page<ProductoDTO> productos= service.listarPageable(page).map(p -> mapper.map(p, ProductoDTO.class));
+
+
+        return new ResponseEntity<>(productos,HttpStatus.OK);
     }
 }

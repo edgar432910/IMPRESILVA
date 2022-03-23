@@ -79,6 +79,7 @@ export class ProductoDialogoComponent implements OnInit {
     this.marcaService.listar().subscribe(data=>{
       this.marcas=data;
     });
+    
    
     this.producto={...this.data};
     
@@ -91,14 +92,13 @@ export class ProductoDialogoComponent implements OnInit {
           'id': new FormControl(this.producto.idProducto),
           'costo': new FormControl(this.producto.costo,[Validators.required]),
           'pais': new FormControl(this.producto.pais,[Validators.required]),
-          'codAlterno': new FormControl(this.producto.codAlterno,[Validators.required]),
-          'codOriginal': new FormControl(this.producto.codOriginal,[Validators.required]),
-          'descripcion': new FormControl(this.producto.descripcion,[Validators.required]),
-          'facturanumero': new FormControl(this.producto.facturanumero,[Validators.required]),
-          'fechaIngreso': new FormControl(this.producto.fechaIngreso,[Validators.required]),
-          'ganancia': new FormControl(this.producto.ganancia,[Validators.required]),
-          'moneda': new FormControl(this.producto.moneda,[Validators.required]),
-          'tercero': new FormControl( this.producto.tercero ,[Validators.required]),
+          'codigo1': new FormControl(this.producto.codigo1,[Validators.required]),
+          'codigo2': new FormControl(this.producto.codigo2,[Validators.required]),
+          'nombre': new FormControl(this.producto.nombre,[Validators.required]),
+          'factura1': new FormControl(this.producto.factura1,[Validators.required]),
+          'factura2': new FormControl(this.producto.factura2,[Validators.required]),
+          'monedaid': new FormControl(this.producto.monedaid,[Validators.required]),
+          'factura3': new FormControl(this.producto.factura3 ,[Validators.required]),
           'proveedor': this.myControlProveedor ,
           'clase': this.myControlClase ,
           'marcavehiculo': this.myControlMarcaVehiculo ,
@@ -122,14 +122,13 @@ export class ProductoDialogoComponent implements OnInit {
           'id': new FormControl(0),
           'costo': new FormControl('',[Validators.required]),
           'pais': new FormControl('',[Validators.required]),
-          'codAlterno': new FormControl('',[Validators.required]),
-          'codOriginal': new FormControl('',[Validators.required]),
-          'descripcion': new FormControl('',[Validators.required]),
-          'facturanumero': new FormControl('',[Validators.required]),
-          'fechaIngreso': new FormControl('',[Validators.required]),
-          'ganancia': new FormControl('',[Validators.required]),
-          'moneda': new FormControl('',[Validators.required]),
-          'tercero': new FormControl('',[Validators.required]),
+          'codigo1': new FormControl('',[Validators.required]),
+          'codigo2': new FormControl('',[Validators.required]),
+          'nombre': new FormControl('',[Validators.required]),
+          'factura1': new FormControl('',[Validators.required]),
+          'factura2': new FormControl('',[Validators.required]),
+          'monedaid': new FormControl('',[Validators.required]),
+          'factura3': new FormControl('',[Validators.required]),
           'proveedor': this.myControlProveedor ,
           'clase': this.myControlClase ,
           'marcavehiculo': this.myControlMarcaVehiculo ,
@@ -146,6 +145,7 @@ export class ProductoDialogoComponent implements OnInit {
 
 
   }
+  
 
   LLENARCAMPO(producto:Producto){
     this.myControlProveedor       = new FormControl(producto.proveedor,[Validators.required]);
@@ -233,15 +233,14 @@ export class ProductoDialogoComponent implements OnInit {
      productofinal.idProducto = this.form.value['id'];    
      productofinal.costo = this.form.value['costo'];
      productofinal.pais = this.form.value['pais'];
-     productofinal.codAlterno = this.form.value['codAlterno'];
-     productofinal.codOriginal = this.form.value['codOriginal'];    
-     productofinal.descripcion = this.form.value['descripcion'];
-     productofinal.estado = this.form.value['estado'];
-     productofinal.facturanumero = this.form.value['facturanumero'];
-     productofinal.fechaIngreso = this.form.value['fechaIngreso'];    
-     productofinal.ganancia = this.form.value['ganancia'];
-     productofinal.moneda = this.form.value['moneda'];
-     productofinal.tercero = this.form.value['tercero'];
+     productofinal.codigo1 = this.form.value['codigo1'];
+     productofinal.codigo2 = this.form.value['codigo2'];    
+     productofinal.codigo3 = this.form.value['nombre'];
+    
+     productofinal.factura1 = this.form.value['factura1'];
+     productofinal.factura2 = this.form.value['factura2'];    
+     
+     productofinal.factura3 = this.form.value['factura3'];
 
      let ProveedorU = new Proveedor();
      let ClaseU = new Clase();

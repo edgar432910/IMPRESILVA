@@ -25,7 +25,9 @@ export class ProductoService extends GenericService<Producto> {
     return this.http.post<Producto[]>(`${environment.HOST}/Producto/search`,p);
   }
   
-
+  listarPageable(p:number, s:number){
+    return this.http.get<any>(`${this.url}/pageable?page=${p}&size=${s}`)
+  }
   getProductoCambio(){
     return this.productoCambio.asObservable();
   }

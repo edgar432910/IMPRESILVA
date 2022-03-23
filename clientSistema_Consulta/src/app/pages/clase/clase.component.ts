@@ -36,6 +36,7 @@ export class ClaseComponent implements OnInit {
       this.snackBar.open(data, 'Aviso', {duration:20000});
     });
     this.claseService.listar().subscribe(data=>{
+      console.log(data);
       this.dataSource= new MatTableDataSource(data);
     
       this.dataSource.paginator=this.paginator;

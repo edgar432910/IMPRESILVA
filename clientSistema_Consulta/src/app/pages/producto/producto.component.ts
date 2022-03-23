@@ -17,6 +17,7 @@ import { ProductoDialogoComponent } from './producto-dialogo/producto-dialogo.co
 export class ProductoComponent implements OnInit {
   dataSource:MatTableDataSource<Producto>;
   displayedColumns: string[] = ['idProducto','clase', 'marca', 'codAlterno','codOriginal','descripcion', 'acciones'];
+  cantidad:number=0;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -35,17 +36,27 @@ export class ProductoComponent implements OnInit {
     this.productoService.mensajeCambio.subscribe(data=>{
       this.snackBar.open(data, 'Aviso', {duration:20000});
     });
-    this.productoService.listar().subscribe(data=>{
-      this.dataSource= new MatTableDataSource(data);
+    this.productoService.listarPageable(0,10).subscribe( data =>{
+      this.cantidad= data.totalElements;
+     this.crearTabla(data.content);
+
+    })
+    // this.productoService.listar().subscribe(data=>{
+    //   this.dataSource= new MatTableDataSource(data);
     
-      this.dataSource.paginator=this.paginator;
-      this.dataSource.sort=this.sort;
-    });
+    //   this.dataSource.paginator=this.paginator;
+    //   this.dataSource.sort=this.sort;
+    // });
 
 
   }
 
-
+  mostrarMas(e:any){
+    this.productoService.listarPageable(e.pageIndex,e.pageSize).subscribe( data =>{
+      this.cantidad= data.totalElements;
+      this.dataSource = new MatTableDataSource(data.content);
+    })
+  }
   
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim().toLowerCase();

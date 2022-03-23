@@ -14,20 +14,25 @@ public class ProductoDTO {
 
     private String codigo1;
     @NotNull
-
     private String codigo2;
+
     private String codigo3;
     private String codigo4;
+
     @NotNull
     private String nombre1;
+
     private String nombre2;
+
     @NotNull
     private String factura1;
+
     @NotNull
     private String factura2;
+
     private String factura3;
     @NotNull
-    private float costo;
+    private Integer costo;
 
     private String pais;
 

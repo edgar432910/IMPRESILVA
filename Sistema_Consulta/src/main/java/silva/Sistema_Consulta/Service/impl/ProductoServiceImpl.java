@@ -2,8 +2,11 @@ package silva.Sistema_Consulta.Service.impl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import silva.Sistema_Consulta.Model.Clase;
+import silva.Sistema_Consulta.Model.Familia;
 import silva.Sistema_Consulta.Model.Producto;
 import silva.Sistema_Consulta.Repository.IGenericRepo;
 import silva.Sistema_Consulta.Repository.ProductoRepository;
@@ -55,6 +58,10 @@ public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements 
             searchCriterias.add(cb.like(productos.get("nombre1"),"%"+search.getNombre1()+"%"));
 
         }
+        if((search.getNombre2()!="")&&(search.getNombre2()!=null)){
+            searchCriterias.add(cb.like(productos.get("nombre2"),"%"+search.getNombre2()+"%"));
+
+        }
         if((search.getMarca()!="")&&(search.getMarca()!=null)){
             searchCriterias.add(cb.like(productos.get("marca").get("nombre"),"%"+search.getMarca()+"%"));
 
@@ -80,4 +87,10 @@ public class ProductoServiceImpl  extends CRUDImpl<Producto, Integer>implements 
 
 
     }
+
+    @Override
+    public Page<Producto> listarPageable(Pageable page) {
+        return repo.findAll(page);
+    }
+
 }

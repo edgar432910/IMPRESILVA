@@ -70,8 +70,8 @@ export class ClaseEdicionComponent implements OnInit {
         this.form = new FormGroup({
           'id': new FormControl(data.idClase),
           'nombre': new FormControl(data.nombre),
-          'estado': new FormControl(data.estado),
-          'orden': new FormControl(data.orden),
+        
+        
           'familia':new FormControl(data.familia.idFamilia)
         });
         
@@ -90,8 +90,8 @@ export class ClaseEdicionComponent implements OnInit {
 
       clase.idClase = this.form.value['id'];    
       clase.nombre = this.form.value['nombre'];
-      clase.estado = this.form.value['estado'];
-      clase.orden = this.form.value['orden'];
+
+    
       clase.familia=this.form.value['familia'];
       
 

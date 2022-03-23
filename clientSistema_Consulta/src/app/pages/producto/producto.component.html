@@ -1,8 +1,6 @@
 
 
-    <app-search>
-      
-    </app-search>
+  
 
 <div class="example-container mat-elevation-z8">
 
@@ -30,16 +28,16 @@
       </ng-container>
       <ng-container matColumnDef="codAlterno">
         <mat-header-cell *matHeaderCellDef mat-sort-header> CodAlterno </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.codAlterno}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.codigo1}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="codOriginal">
         <mat-header-cell *matHeaderCellDef mat-sort-header> CodOriginal </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.codOriginal}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.codigo2}} </mat-cell>
       </ng-container>
     
       <ng-container matColumnDef="descripcion">
         <mat-header-cell *matHeaderCellDef mat-sort-header> descripcion </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.nombre1}} </mat-cell>
       </ng-container>
      
   
@@ -61,7 +59,7 @@
       </mat-row>
     </mat-table>
   
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator  [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" [length]="cantidad" (page)="mostrarMas($event)"></mat-paginator>
   </div>
   
   <br>

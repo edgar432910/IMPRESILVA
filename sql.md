@@ -122,6 +122,7 @@ claseid nvarchar(20) not null,
 marcaid nvarchar(20) null, 
 unidadid nvarchar(20) not null, 
 marcavehiculoid int null, 
+
 monedaid nvarchar(3) null,
 CONSTRAINT fk_proveedor FOREIGN KEY (id_proveedor)
 references proveedor(id_proveedor),
@@ -138,8 +139,6 @@ references unidad(id_unidad ),
 CONSTRAINT fk_marcavehiculo FOREIGN KEY (id_marca_vehiculo )
 references marca_vehiculo(id_marca_vehiculo ),
 
-CONSTRAINT fk_factura_compra FOREIGN KEY (id_marca_vehiculo )
-references marca_vehiculo(id_marca_vehiculo ),
 
 CONSTRAINT fk_moneda FOREIGN KEY (id_moneda )
 references moneda(id_moneda ),
@@ -164,6 +163,8 @@ references proveedor(id_proveedor)
 -- drop table clase 
 use Prueba
 go
+# Enlazar columnas 
+
 -- UPDATE
 update clase
 set clase.id_familia= f.id_familia
@@ -213,6 +214,24 @@ from producto p
 inner join moneda m
 on p.monedaid= m.monedaid
 
+# Eliminar columnas de mas 
+ALTER TABLE familia DROP COLUMN familiaid 
+ALTER TABLE marca DROP COLUMN marcaid
+ALTER TABLE unidad DROP COLUMN unidadid
+ALTER TABLE marca_vehiculo DROP COLUMN marcavehiculoid
+ALTER TABLE proveedor DROP COLUMN proveedorid
+ALTER TABLE moneda DROP COLUMN monedaid
+ALTER TABLE clase DROP COLUMN claseid, familiaid
+ALTER TABLE  DROP COLUMN
+
+ALTER TABLE producto DROP COLUMN 
+productoid,
+proveedorid, 
+claseid , 
+marcaid, 
+unidadid , 
+marcavehiculoid 
+
 -- Creacion de querys para la migracion 
 --Familia
 SELECT Fam_Codigo AS familiaid, Fam_Nombre AS nombre
@@ -235,7 +254,7 @@ Distrito as distrito, NumeroRuc as ruc,
 Telefono as telefono from Proveedores$
 
 -- MarcaVehiculo
-select  CODIGO as marca_vehiculoid, MarcaVehiculo as nombre from MARCAVEHI$ 
+select  CODIGO as marcavehiculoid, MarcaVehiculo as nombre from MARCAVEHI$ 
 
 -- MOneda
 select Mon_Codigo as monedaid, Mon_Nombre as nombre from Moneda
@@ -327,20 +346,3 @@ create table oauth_access_token (
 );
 VARBINARY(MAX).
 
-
-ALTER TABLE familia DROP COLUMN familiaid 
-ALTER TABLE marca DROP COLUMN marcaid
-ALTER TABLE unidad DROP COLUMN unidadid
-ALTER TABLE marca_vehiculo DROP COLUMN marcavehiculoid
-ALTER TABLE proveedor DROP COLUMN proveedorid
-ALTER TABLE moneda DROP COLUMN monedaid
-ALTER TABLE clase DROP COLUMN claseid, familiaid
-ALTER TABLE  DROP COLUMN
-
-ALTER TABLE producto DROP COLUMN 
-productoid,
-proveedorid, 
-claseid , 
-marcaid, 
-unidadid , 
-marcavehiculoid 

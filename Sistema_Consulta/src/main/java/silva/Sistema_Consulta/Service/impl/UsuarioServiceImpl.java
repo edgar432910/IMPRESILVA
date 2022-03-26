@@ -40,4 +40,6 @@ public class UsuarioServiceImpl implements UserDetailsService{
 		return ud;
 	}
 
+
+
 }

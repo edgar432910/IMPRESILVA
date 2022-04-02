@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { TablejsComponent } from './tablejs/tablejs.component';
 import { MaterialModule } from '../shared/Material/material.module';
+import { ClaseComponent } from './clase/clase.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 
@@ -15,7 +17,9 @@ import { MaterialModule } from '../shared/Material/material.module';
     DashboardComponent,
     FamiliaComponent,
     PagesComponent,
-    TablejsComponent
+    TablejsComponent,
+    ClaseComponent,
+    UsuarioComponent
   ],
   exports:[
     DashboardComponent,

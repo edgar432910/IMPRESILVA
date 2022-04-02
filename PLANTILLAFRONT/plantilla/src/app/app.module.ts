@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+
 export function tokenGetter() {
   return localStorage.getItem(environment.TOKEN_NAME);
 }
@@ -19,6 +20,7 @@ export function tokenGetter() {
     AppComponent,
 
     NopagefoundComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,9 @@ import javax.validation.constraints.NotBlank;
 
 public class MonedaDTO {
     private Integer idMoneda;
+
     @NotBlank
-    private String nombre;
+    private String nombre ;
+
+
 }
